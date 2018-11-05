@@ -1,6 +1,35 @@
 <h2>
   Meetings
 </h2>
-<p>
-  meetings works!
-</p>
+<table class="table table-hover table-striped">
+  <tbody>
+    <tr *ngFor="let groups of districts">
+      <td *ngFor="let district of groups">
+        <a href="{{district.meetings}}">District {{district.district}}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Area 74 Cities</h3>
+<table datatable class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">District</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let city of cities">
+      <td>
+        {{city.city}}
+      </td>
+      <td>
+        {{city.state}}
+      </td>
+      <td>
+        {{city.district}}
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MeetingsService } from '../meetings.service';
+import { DistrictService } from '../district.service';
 
 @Component({
   selector: 'app-meetings',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeetingsComponent implements OnInit {
 
-  constructor() { }
+  cities = [];
+  districts = [];
+
+  constructor(private meetingsService: MeetingsService, private districtService: DistrictService) {
+
+  }
 
   ngOnInit() {
+    this.getCities();
+    this.getDistricts();
+  }
+
+  getCities(): void {
+    this.meetingsService.getCities().subscribe(cities => this.cities = cities);
+  }
+
+  getDistricts(): void {
+    this.districtService.getDistricts().subscribe(districts => this.districts = districts);
   }
 
 }
