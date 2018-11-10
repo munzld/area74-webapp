@@ -1,70 +1,13 @@
 <h2>
   District Websites
 </h2>
-<table border="0" cellpadding="4" cellspacing="4" width="100%">
-    <tr>
-      <td width="16%">
-        <p align="center"><a href="https://www.greenbayaa.org" target="_blank">District
-        1</a></td>
-      <td width="16%">
-        <p align="center"><a href="https://www.aainwestwis.org/" target="_blank">District
-        5</a></td>
-      <td width="17%">
-        <p align="center"><a href="https://www.district09aa.org/" target="_blank">District
-        9</a></td>
-      <td width="17%">
-        <p align="center">District 13</td>
-      <td width="17%">
-        <p align="center"><a href="https://www.district17a74.org/" target="_blank">District
-        17</a></td>
-      <td width="17%">
-        <p align="center">District 21</td>
-    </tr>
-    <tr>
-      <td width="16%">
-        <p align="center"><a href="https://www.district02aa.org/" target="_blank">District
-        2</a></td>
-      <td width="16%">
-        <p align="center">District 6</td>
-      <td width="17%">
-        <p align="center"><a href="rede10.html" target="_blank">District
-        10</a></td>
-      <td width="17%">
-        <p align="center"><a href="rede14.html" target="_blank">District 14</a></td>
-      <td width="17%">
-        <p align="center"><a href="rede18.html" target="_blank">District
-        18</a></td>
-      <td width="17%">
-        <p align="center"><a href="rede22.html" target="_blank">District
-        22</a></td>
-    </tr>
-    <tr>
-      <td width="16%">
-        <p align="center">District 3</td>
-      <td width="16%">
-        <p align="center">District 7</td>
-      <td width="17%">
-        <p align="center">District 11</td>
-      <td width="17%">
-        <p align="center">District 15</td>
-      <td width="17%">
-        <p align="center">District 19</td>
-      <td width="17%">
-        <p align="center">District 23</td>
-    </tr>
-    <tr>
-      <td width="16%">
-        <p align="center"><a href="rede04.html" target="_blank">District
-        4</a></td>
-      <td width="16%">
-        <p align="center"><a href="http://www.aawausauwi.org/" target="_blank">District 8</a></td>
-      <td width="17%">
-        <p align="center">District 12</td>
-      <td width="17%">
-        <p align="center">District 16</td>
-      <td width="17%">
-        <p align="center"><a href="rede20.html" target="_blank">District 20</a></td>
-      <td width="17%">
-        <p align="center">District 24</td>
-    </tr>
-  </table>
+<table class="table table-hover table-striped">
+  <tbody>
+      <tr *ngFor="let groups of districts">
+        <td *ngFor="let district of groups">
+          <p *ngIf="district.website !== ''"><a href="{{district.website}}" target="_blank">District {{district.district}}</a></p>
+          <p *ngIf="district.website == ''">District {{district.district}}</p>
+        </td>
+      </tr>
+  </tbody>
+</table>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DistrictService } from '../district.service';
 
 @Component({
   selector: 'app-district',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistrictComponent implements OnInit {
 
-  constructor() { }
+  districts = [];
+
+  constructor(private districtService: DistrictService) { }
 
   ngOnInit() {
+    this.getDistricts();
+  }
+
+  getDistricts(): void {
+    this.districtService.getDistricts().subscribe(districts => this.districts = districts);
   }
 
 }
