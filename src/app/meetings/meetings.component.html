@@ -17,7 +17,7 @@
   </div>
 </div>
 <h3>Area 74 Cities</h3>
-<table datatable class="table table-hover">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
   <thead>
     <tr>
       <th scope="col">City</th>
@@ -28,13 +28,13 @@
   <tbody>
     <tr *ngFor="let city of cities">
       <td>
-        {{city?.city}}
+        {{city.city}}
       </td>
       <td>
-        {{city?.state}}
+        {{city.state}}
       </td>
       <td>
-        {{city?.district}}
+        {{city.district}}
       </td>
     </tr>
   </tbody>

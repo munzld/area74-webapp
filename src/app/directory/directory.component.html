@@ -1,6 +1,25 @@
 <h2>
   Area 74 Directory
 </h2>
-<p>
-  directory works!
-</p>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let position of directory">
+      <td>
+        {{position.position}}
+      </td>
+      <td>
+        {{position.name}}
+      </td>
+      <td>
+        {{position.email}}
+      </td>
+    </tr>
+  </tbody>
+</table>
