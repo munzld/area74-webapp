@@ -1,6 +1,8 @@
 <h2>
   Area 74 Conference's
 </h2>
-<p>
-  conference works!
-</p>
+<ul>
+  <li *ngFor="let conference of conferences">
+    <a href="{{conference.flyer}}">{{conference.name}}</a>
+  </li>
+</ul>
