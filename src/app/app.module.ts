@@ -22,6 +22,7 @@ import { LinksComponent } from './links/links.component';
 import { GuidelinesComponent } from './guidelines/guidelines.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.com
     LinksComponent,
     GuidelinesComponent,
     DirectoryComponent,
-    BridgingTheGapComponent
+    BridgingTheGapComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
