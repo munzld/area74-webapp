@@ -27,14 +27,14 @@ export class MeetingsComponent implements OnInit {
   }
 
   getCities(): void {
-    this.meetingsService.getCities().subscribe(cities => this.cities = cities);
+    this.meetingsService.getCities().subscribe(cities => {
+      this.cities = cities;
+      this.dtTrigger.next();
+    });
   }
 
   getDistricts(): void {
-    this.districtService.getDistricts().subscribe(districts => {
-      this.districts = districts;
-      this.dtTrigger.next();
-    });
+    this.districtService.getDistricts().subscribe(districts => this.districts = districts);
   }
 
 }
