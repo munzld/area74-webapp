@@ -15,6 +15,8 @@ import { InformationComponent }   from './information/information.component';
 import { LinksComponent }   from './links/links.component';
 import { GuidelinesComponent }   from './guidelines/guidelines.component';
 import { DirectoryComponent }   from './directory/directory.component';
+import { ServiceComponent }   from './service/service.component';
+import { PageNotFoundComponent }   from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,7 +33,9 @@ const routes: Routes = [
   { path: 'information', component: InformationComponent },
   { path: 'links', component: LinksComponent },
   { path: 'guidelines', component: GuidelinesComponent },
-  { path: 'directory', component: DirectoryComponent }
+  { path: 'directory', component: DirectoryComponent },
+  { path: 'service', component: ServiceComponent},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

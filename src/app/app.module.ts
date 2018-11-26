@@ -23,6 +23,8 @@ import { GuidelinesComponent } from './guidelines/guidelines.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.component';
 import { AlertComponent } from './alert/alert.component';
+import { ServiceComponent } from './service/service.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { AlertComponent } from './alert/alert.component';
     GuidelinesComponent,
     DirectoryComponent,
     BridgingTheGapComponent,
-    AlertComponent
+    AlertComponent,
+    ServiceComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
