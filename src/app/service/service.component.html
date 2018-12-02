@@ -8,10 +8,7 @@
         <h4 class="card-header">Presentations</h4>
         <div class="card-body">
           <ul class="card-text">
-            <li><a href="assets/service/presentations/GSR Workshop.ppt" target="_blank">GSR Workshop Powerpoint</a></li>
-            <li><a href="assets/service/presentations/GSR Presentation.ppt" target="_blank">GSR Presentation Powerpoint</a></li>
-            <li><a href="assets/service/presentations/GSR Presentation.pdf" target="_blank">GSR Presentation PDF</a></li>
-            <li><a href="assets/service/presentations/GSR Workshop.pdf" target="_blank">GSR Workshop PDF</a></li>
+            <li *ngFor="let presentation of presentations"><a href="{{presentation.asset}}" target="_blank">{{presentation.name}}</a></li>
           </ul>
         </div>
       </div>
@@ -22,16 +19,11 @@
         <div class="card-body">
           <h5 class="card-title">Minutes</h5>
           <ul class="card-text">
-            <li><a href="assets/service/area-committee/minutes/2014-05-18.pdf" target="_blank">2014-05-18</a></li>
-            <li><a href="assets/service/area-committee/minutes/2014-08-09.pdf" target="_blank">2014-08-09</a></li>
-            <li><a href="assets/service/area-committee/minutes/2014-09-28.pdf" target="_blank">2014-09-28</a></li>
-            <li><a href="assets/service/area-committee/minutes/2014-12-13.pdf" target="_blank">2014-12-13</a></li>
-            <li><a href="assets/service/area-committee/minutes/2015-03-28.pdf" target="_blank">2015-03-28</a></li>
-            <li><a href="assets/service/area-committee/minutes/2015-05-17.pdf" target="_blank">2015-05-17</a></li>
+            <li *ngFor="let minutes of areaCommitteeMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
           </ul>
           <h5 class="card-title">Reports</h5>
           <ul class="card-text">
-            <li></li>
+            <li *ngFor="let report of areaCommitteeReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
           </ul>
         </div>
       </div>
@@ -42,11 +34,11 @@
         <div class="card-body">
           <h5 class="card-title">Minutes</h5>
           <ul class="card-text">
-            <li></li>
+            <li *ngFor="let minutes of areaAssemblyMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
           </ul>
           <h5 class="card-title">Reports</h5>
           <ul class="card-text">
-            <li></li>
+            <li *ngFor="let report of areaAssemblyReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
           </ul>
         </div>
       </div>
@@ -56,10 +48,10 @@
 <h3 class="text-center">
   Archives
 </h3>
-<div class="card mx-auto text-white bg-dark mb-3" style="max-width: 20rem;">
+<div class="card mx-auto border-dark mb-3" style="max-width: 20rem;">
   <div class="card-body">
     <ul class="card-text">
-      <li></li>
+      <li *ngFor="let archive of archives"><a href="{{archive.asset}}" target="_blank">{{archive.name}}</a></li>
     </ul>
   </div>
 </div>
