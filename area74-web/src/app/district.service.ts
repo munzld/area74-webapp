@@ -10,6 +10,6 @@ export class DistrictService {
   constructor(private http: HttpClient) { }
 
   public getDistricts(): Observable<any> {
-    return this.http.get("./assets/district/districts.json")
+    return this.http.get('./assets/district/districts.json');
   }
 }
