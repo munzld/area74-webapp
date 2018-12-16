@@ -5,15 +5,17 @@
   We have provided these links to facilitate information about local A.A. meetings.
   Our links do not constitute or indicate review, endorsement, or approval.
 </p>
-<table class="table table-hover table-striped">
-  <tbody>
-    <tr *ngFor="let groups of districts">
-      <td *ngFor="let district of groups">
-        <a href="{{district?.meetings}}">District {{district.district}}</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-hover table-striped">
+    <tbody>
+      <tr *ngFor="let groups of districts">
+        <td *ngFor="let district of groups">
+          <a href="{{district?.meetings}}">District {{district.district}}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="card border-warning mb-3">
   <div class="card-body">
     <h4 class="card-title">Keep Your Meeting Lists Updated!</h4>

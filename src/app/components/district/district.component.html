@@ -6,13 +6,15 @@
   local A.A. district websites. Our links do not constitute or indicate
   review, endorsement, or approval.
 </p>
-<table class="table table-hover table-striped">
-  <tbody>
-      <tr *ngFor="let groups of districts">
-        <td *ngFor="let district of groups">
-          <p *ngIf="district.website !== ''"><a href="{{district.website}}" target="_blank">District {{district.district}}</a></p>
-          <p *ngIf="district.website == ''">District {{district.district}}</p>
-        </td>
-      </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-hover table-striped">
+    <tbody>
+        <tr *ngFor="let groups of districts">
+          <td *ngFor="let district of groups">
+            <p *ngIf="district.website !== ''"><a href="{{district.website}}" target="_blank">District {{district.district}}</a></p>
+            <p *ngIf="district.website == ''">District {{district.district}}</p>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
