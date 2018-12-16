@@ -1,25 +1,5 @@
 [
   {
-    "date": "December 4, 2018",
-    "district": 7,
-    "time": "7:00 PM",
-    "description": "District 7 Workshop",
-    "place": "Marshfield Alano Club",
-    "address": "2111 S Central Ave.",
-    "city": "Marshfield",
-    "state": "WI"
-  },
-  {
-    "date": "December 8, 2018",
-    "district": "Area",
-    "time": "10:00 AM",
-    "description": "Area Committee Meeting",
-    "place": "Reiter Center",
-    "address": "1858 S. Michigan Street",
-    "city": "Three Lakes",
-    "state": "WI"
-  },
-  {
     "date": "March 9, 2019",
     "district": "Area",
     "time": "",
