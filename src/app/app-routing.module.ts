@@ -37,8 +37,8 @@ const routes: Routes = [
   { path: 'guidelines', component: GuidelinesComponent },
   { path: 'directory', component: DirectoryComponent },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
-  { path: '**', component: PageNotFoundComponent },
-  { path: 'callback', component: CallbackComponent}
+  { path: 'callback', component: CallbackComponent},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
