@@ -1,47 +1,94 @@
 <h2>
   Meetings
 </h2>
-<p>
-  We have provided these links to facilitate information about local A.A. meetings.
-  Our links do not constitute or indicate review, endorsement, or approval.
-</p>
-<div class="table-responsive">
-  <table class="table table-hover table-striped">
-    <tbody>
-      <tr *ngFor="let groups of districts">
-        <td *ngFor="let district of groups">
-          <a href="{{district?.meetings}}">District {{district.district}}</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="card border-warning mb-3">
-  <div class="card-body">
-    <h4 class="card-title">Keep Your Meeting Lists Updated!</h4>
-    <p class="card-text">Submit your meeting list updates to <a href="mailto:webmaster@area74.org">webmaster@area74.org</a></p>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h3 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Area 74 Map
+        </button>
+      </h3>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body text-center">
+        <img src="assets/meetings/map.gif" alt="Area 74 Map">
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h3 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Meeting Flyers
+        </button>
+      </h3>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <p>
+          We have provided these links to facilitate information about local A.A. meetings.
+          Our links do not constitute or indicate review, endorsement, or approval.
+        </p>
+        <div class="table-responsive">
+          <table class="table table-hover table-striped">
+            <tbody>
+              <tr *ngFor="let groups of districts">
+                <td *ngFor="let district of groups">
+                  <a href="{{district?.meetings}}">District {{district.district}}</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card border-warning mb-3">
+          <div class="card-body">
+            <h4 class="card-title">Keep Your Meeting Information Updated!</h4>
+            <ul>
+              <li><p>Submit your meeting list updates to <a href="mailto:webmaster@area74.org">webmaster@area74.org</a></p></li>
+              <li><p>If your group information has changed, please fill out a <a href="https://www.aa.org/assets/en_US/e_infchan.pdf" target="_blank">group information change form</a></p></li>
+              <li><p>If you are a new group, please fill out a <a href="https://www.aa.org/assets/en_US/e_group.pdf" target="_blank">new group form</a></p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h3 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Area 74 Cities
+        </button>
+      </h3>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">District</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let city of cities">
+              <td>
+                {{city.city}}
+              </td>
+              <td>
+                {{city.state}}
+              </td>
+              <td>
+                {{city.district}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-<h3>Area 74 Cities</h3>
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">City</th>
-      <th scope="col">State</th>
-      <th scope="col">District</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let city of cities">
-      <td>
-        {{city.city}}
-      </td>
-      <td>
-        {{city.state}}
-      </td>
-      <td>
-        {{city.district}}
-      </td>
-    </tr>
-  </tbody>
-</table>

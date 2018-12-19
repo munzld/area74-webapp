@@ -1066,5 +1066,35 @@
     "city": "Wrightstown",
     "state": "Wisconsin",
     "district": 2
+  },
+  {
+    "id": 178,
+    "city": "Hayward",
+    "state": "Wisconsin",
+    "district": 12
+  },
+  {
+    "id": 179,
+    "city": "McMillan",
+    "state": "Michigan",
+    "district": 20
+  },
+  {
+    "id": 180,
+    "city": "Paradise",
+    "state": "Michigan",
+    "district": 20
+  },
+  {
+    "id": 181,
+    "city": "Grand Marais",
+    "state": "Michigan",
+    "district": 20
+  },
+  {
+    "id": 182,
+    "city": "Au Train",
+    "state": "Michigan",
+    "district": 20
   }
 ]
