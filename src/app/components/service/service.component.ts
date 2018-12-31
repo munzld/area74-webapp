@@ -22,12 +22,12 @@ export class ServiceComponent implements OnInit {
 
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getPresentations();

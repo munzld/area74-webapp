@@ -78,8 +78,13 @@ export class AuthService {
     this._expiresAt = 0;
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
-    // Go back to the home route
-    this.router.navigate(['/']);
+    // Log out of Auth0 session
+    // Ensure that returnTo URL is specified in Auth0
+    // Application settings for Allowed Logout URLs
+    this.auth0.logout({
+      returnTo: environment.serverUrl,
+      clientID: environment.clientID
+    });
   }
 
   public isAuthenticated(): boolean {
