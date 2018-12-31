@@ -3,43 +3,95 @@
 </h2>
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-      <div class="card border-light mb-3" style="max-width: 20rem;">
-        <h4 class="card-header">Presentations</h4>
-        <div class="card-body">
-          <ul class="card-text">
-            <li *ngFor="let presentation of presentations"><a href="{{presentation.asset}}" target="_blank">{{presentation.name}}</a></li>
-          </ul>
+    <div class="col-sm mb-3">
+      <div id="accordionPresentation">
+        <div class="card">
+          <div class="card-header" id="headingPresentation">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePresentation" aria-expanded="false" aria-controls="collapsePresentation">
+                Presentations
+              </button>
+            </h5>
+          </div>
+          <div id="collapsePresentation" class="collapse" aria-labelledby="headingPresentation" data-parent="#accordionPresentation">
+            <div class="card-body">
+              <ul>
+                <li *ngFor="let presentation of presentations"><a href="{{presentation.asset}}" target="_blank">{{presentation.name}}</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm">
-      <div class="card border-light mb-3" style="max-width: 20rem;">
-        <h4 class="card-header">Area Committee</h4>
-        <div class="card-body">
-          <h5 class="card-title">Minutes</h5>
-          <ul class="card-text">
-            <li *ngFor="let minutes of areaCommitteeMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
-          </ul>
-          <h5 class="card-title">Reports</h5>
-          <ul class="card-text">
-            <li *ngFor="let report of areaCommitteeReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
-          </ul>
+    <div class="col-sm mb-3">
+      <div id="accordionAreaCommittee">
+        <div class="card">
+          <div class="card-header" id="headingAreaCommitteeMinutes">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseAreaCommitteeMinutes" aria-expanded="false" aria-controls="collapseAreaCommitteeMinutes">
+                Area Committee Minutes
+              </button>
+            </h5>
+          </div>
+          <div id="collapseAreaCommitteeMinutes" class="collapse" aria-labelledby="headingAreaCommitteeMinutes" data-parent="#accordionAreaCommittee">
+            <div class="card-body">
+              <ul class="card-text">
+                <li *ngFor="let minutes of areaCommitteeMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingAreaCommitteeReports">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseAreaCommitteeReports" aria-expanded="false" aria-controls="collapseAreaCommitteeReports">
+                Area Committee Reports
+              </button>
+            </h5>
+          </div>
+          <div id="collapseAreaCommitteeReports" class="collapse" aria-labelledby="headingAreaCommitteeReports" data-parent="#accordionAreaCommittee">
+            <div class="card-body">
+              <ul class="card-text">
+                <li *ngFor="let report of areaCommitteeReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm">
-      <div class="card border-light mb-3" style="max-width: 20rem;">
-        <h4 class="card-header">Area Assembly</h4>
-        <div class="card-body">
-          <h5 class="card-title">Minutes</h5>
-          <ul class="card-text">
-            <li *ngFor="let minutes of areaAssemblyMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
-          </ul>
-          <h5 class="card-title">Reports</h5>
-          <ul class="card-text">
-            <li *ngFor="let report of areaAssemblyReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
-          </ul>
+    <div class="col-sm mb-3">
+      <div id="accordionAreaAssembly">
+        <div class="card">
+          <div class="card-header" id="headingAreaAssemblyMinutes">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseAreaAssemblyMinutes" aria-expanded="false" aria-controls="collapseAreaAssemblyMinutes">
+                Area Assembly Minutes
+              </button>
+            </h5>
+          </div>
+          <div id="collapseAreaAssemblyMinutes" class="collapse" aria-labelledby="headingAreaAssemblyMinutes" data-parent="#accordionAreaAssembly">
+            <div class="card-body">
+              <ul class="card-text">
+                <li *ngFor="let minutes of areaAssemblyMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingAreaAssemblyReports">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseAreaAssemblyReports" aria-expanded="false" aria-controls="collapseAreaAssemblyReports">
+                Area Assembly Reports
+              </button>
+            </h5>
+          </div>
+          <div id="collapseAreaAssemblyReports" class="collapse" aria-labelledby="headingAreaAssemblyReports" data-parent="#accordionAreaAssembly">
+            <div class="card-body">
+              <ul class="card-text">
+                <li *ngFor="let report of areaAssemblyReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,16 +100,30 @@
 <h3 class="text-center">
   Archives
 </h3>
-<div class="card mx-auto border-dark mb-3" style="max-width: 20rem;">
-  <div class="card-body">
-    <ul class="card-text">
-      <li *ngFor="let archive of archives"><a href="{{archive.asset}}" target="_blank">{{archive.name}}</a></li>
-    </ul>
-  </div>
-</div>
-<p class="mb-5">
+<p class="mb-3">
   This information has been collected by the archives committee. They have spent
   many hours collecting this information. Although they have spent a lot of time
   on this project we still need your help. Over the year minutes have gone missing.
   Please send any minutes that are missing to the Archivist (archivist@area74.org).
 </p>
+<div id="accordionArchive">
+  <div class="card mx-auto mb-5" style="max-width: 20rem;">
+    <div class="card-header" id="headingArchive">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseArchive" aria-expanded="false" aria-controls="collapseArchive">
+          Archives
+        </button>
+      </h5>
+    </div>
+    <div id="collapseArchive" class="collapse" aria-labelledby="headingArchive" data-parent="#accordionArchive">
+      <div class="card-body">
+        <ul class="card-text">
+          <li *ngFor="let archive of archives"><a href="{{archive.asset}}" target="_blank">{{archive.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary btn-margin" *ngIf="authService.isAuthenticated()" (click)="authService.logout()">
+    Logout
+</button>

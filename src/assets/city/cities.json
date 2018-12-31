@@ -643,7 +643,7 @@
   },
   {
     "id": 107,
-    "city": "Naubinway",
+    "city": "Au Train",
     "state": "Michigan",
     "district": 20
   },
@@ -1093,7 +1093,13 @@
   },
   {
     "id": 182,
-    "city": "Au Train",
+    "city": "Paradise",
+    "state": "Michigan",
+    "district": 20
+  },
+  {
+    "id": 183,
+    "city": "Germfask",
     "state": "Michigan",
     "district": 20
   }

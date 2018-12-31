@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 import { PresentationService } from '../../services/presentation/presentation.service';
 import { ArchiveService } from '../../services/archive/archive.service';
 import { AreaAssemblyService } from '../../services/area-assembly/area-assembly.service';
@@ -21,11 +22,12 @@ export class ServiceComponent implements OnInit {
 
 
   constructor(
+    private authService: AuthService,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getPresentations();
