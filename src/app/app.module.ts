@@ -28,6 +28,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CallbackComponent } from './components/callback/callback.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './services/auth/auth.guard';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthGuard } from './services/auth/auth.guard';
     BridgingTheGapComponent,
     ServiceComponent,
     PageNotFoundComponent,
-    CallbackComponent
+    CallbackComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
