@@ -559,7 +559,7 @@
   },
   {
     "id": 93,
-    "city": "Mc Millan",
+    "city": "McMillan",
     "state": "Michigan",
     "district": 20
   },
@@ -1075,30 +1075,18 @@
   },
   {
     "id": 179,
-    "city": "McMillan",
+    "city": "Paradise",
     "state": "Michigan",
     "district": 20
   },
   {
     "id": 180,
-    "city": "Paradise",
-    "state": "Michigan",
-    "district": 20
-  },
-  {
-    "id": 181,
     "city": "Grand Marais",
     "state": "Michigan",
     "district": 20
   },
   {
-    "id": 182,
-    "city": "Paradise",
-    "state": "Michigan",
-    "district": 20
-  },
-  {
-    "id": 183,
+    "id": 181,
     "city": "Germfask",
     "state": "Michigan",
     "district": 20
