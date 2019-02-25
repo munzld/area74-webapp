@@ -1,8 +1,41 @@
 <h2>
-  Area 74 Conference's
+  Area 74 Conferences
 </h2>
-<ul>
-  <li *ngFor="let conference of conferences">
-    <a href="{{conference.flyer}}">{{conference.name}}</a>
-  </li>
-</ul>
+<div class="accordion" id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingPastConferences">
+      <h3 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePastConferences" aria-expanded="false" aria-controls="collapsePastConferences">
+          Past Conferences
+        </button>
+      </h3>
+    </div>
+    <div id="collapsePastConferences" class="collapse" aria-labelledby="headingPastConferences" data-parent="#accordion">
+      <div class="card-body">
+        <ul>
+          <li *ngFor="let pastConference of pastConferences">
+            <a href="{{pastConference.flyer}}">{{pastConference.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingUpcomingConferences">
+      <h3 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseUpcomingConferences" aria-expanded="false" aria-controls="collapseUpcomingConferences">
+          Upcoming Conferences
+        </button>
+      </h3>
+    </div>
+    <div id="collapseUpcomingConferences" class="collapse show" aria-labelledby="headingUpcomingConferences" data-parent="#accordion">
+      <div class="card-body">
+        <ul>
+          <li *ngFor="let upcomingConference of upcomingConferences">
+            <a href="{{upcomingConference.flyer}}">{{upcomingConference.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

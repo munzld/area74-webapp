@@ -1,122 +1,128 @@
 [
   {
     "date": "March 9, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Delegates Workshop",
     "place": "Reiter Center",
     "address": "1858 S Michigan St",
     "city": "Three Lakes",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "April 27, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Winter Assembly",
     "place": "Reiter Center",
     "address": "1858 S Michigan St",
     "city": "Three Lakes",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "May 17 - 19, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Spring Conference",
     "place": "Liberty Hall Banquet & Conference Center",
     "address": "800 Eisenhower Drive",
     "city": "Kimberly",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "May 18, 2019",
-    "district": "Area",
-    "time": "9:00 AM",
     "description": "Area 74 Assembly",
     "place": "Liberty Hall Banquet & Conference Center",
     "address": "800 Eisenhower Drive",
     "city": "Kimberly",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "May 19, 2019",
-    "district": "Area",
-    "time": "8:00 AM",
     "description": "Area 74 Area Committee",
     "place": "Liberty Hall Banquet & Conference Center",
     "address": "800 Eisenhower Drive",
     "city": "Kimberly",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "May 19 - 25, 2019",
-    "district": "",
-    "time": "",
     "description": "AA General Service Conference",
     "place": "Crowne Plaza",
     "address": "Times Square",
     "city": "New York",
-    "state": "NY"
+    "state": "NY",
+    "link": ""
   },
   {
     "date": "June 22, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Delegate's Report & Area Committee Mtg (optional)",
     "place": "Reiter Center",
     "address": "1858 S Michigan St",
     "city": "Three Lakes",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
+  },
+  {
+    "date": "July 12 - 14, 2019",
+    "description": "East Central Regional Forum",
+    "place": "Sheraton Detroit Metro Airport Hotel",
+    "address": "8000 Merriman Road",
+    "city": "Romulus",
+    "state": "MI",
+    "link": "assets/calendar/flyers/2019-ECR-Forum.pdf"
   },
   {
     "date": "September 20 - 22, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Fall Conference",
     "place": "Ramada of Waupaca",
     "address": "110 Grand Seasons Drive",
     "city": "Waupaca",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "September 21, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Election Assembly",
     "place": "Ramada of Waupaca",
     "address": "110 Grand Seasons Drive",
     "city": "Waupaca",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "September 22, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Area Committee",
     "place": "Ramada of Waupaca",
     "address": "110 Grand Seasons Drive",
     "city": "Waupaca",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
+  },
+  {
+    "date": "October 18 - 20, 2019",
+    "description": "East Central Regional Conference",
+    "place": "Crowne Plaza Milwaukee Airport",
+    "address": "6401 south 13th St.",
+    "city": "Milwaukee",
+    "state": "WI",
+    "link": "assets/calendar/flyers/2019-ECR-Conference.pdf"
   },
   {
     "date": "October 26, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Fall Assembly",
     "place": "Reiter Center",
     "address": "1858 S Michigan St",
     "city": "Three Lakes",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   },
   {
     "date": "December 14, 2019",
-    "district": "Area",
-    "time": "",
     "description": "Area 74 Area Committee",
     "place": "Reiter Center",
     "address": "1858 S Michigan St",
     "city": "Three Lakes",
-    "state": "WI"
+    "state": "WI",
+    "link": ""
   }
 ]

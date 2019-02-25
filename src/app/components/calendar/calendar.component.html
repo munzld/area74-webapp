@@ -6,8 +6,6 @@
     <thead>
       <tr>
         <th scope="col">Date</th>
-        <th scope="col">District</th>
-        <th scope="col">Time</th>
         <th scope="col">Description</th>
         <th scope="col">Place</th>
         <th scope="col">Address</th>
@@ -20,14 +18,11 @@
         <td>
           {{event?.date}}
         </td>
-        <td>
-          {{event?.district}}
-        </td>
-        <td>
-          {{event?.time}}
-        </td>
-        <td>
+        <td *ngIf="!event?.link">
           {{event?.description}}
+        </td>
+        <td *ngIf="event?.link">
+          <a href="{{event?.link}}" target="_blank">{{event?.description}}</a>
         </td>
         <td>
           {{event?.place}}

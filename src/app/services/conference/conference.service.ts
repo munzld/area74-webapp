@@ -9,7 +9,11 @@ export class ConferenceService {
 
   constructor(private http: HttpClient) { }
 
-  public getConferences(): Observable<any> {
-    return this.http.get('./assets/conference/conferences.json');
+  public getPastConferences(): Observable<any> {
+    return this.http.get('./assets/conference/past-conferences.json');
+  }
+
+  public getUpcomingConferences(): Observable<any> {
+    return this.http.get('./assets/conference/upcoming-conferences.json');
   }
 }

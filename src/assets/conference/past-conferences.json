@@ -70,17 +70,5 @@
   {
     "name": "Fall Conference 2018",
     "flyer": "assets/conference/flyer/18fc.pdf"
-  },
-  {
-    "name": "Spring Conference 2019",
-    "flyer": "assets/conference/flyer/19sc.pdf"
-  },
-  {
-    "name": "Fall Conference 2019",
-    "flyer": "assets/conference/flyer/19fc.pdf"
-  },
-  {
-    "name": "Spring Conference 2020",
-    "flyer": "assets/conference/flyer/20sc.pdf"
   }
 ]
