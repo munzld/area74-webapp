@@ -29,6 +29,8 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './services/auth/auth.guard';
 import { HeaderComponent } from './components/header/header.component';
+import { UpcomingConferencesPipe } from './shared/pipes/upcoming-conferences.pipe';
+import { PastConferencesPipe } from './shared/pipes/past-conferences.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { HeaderComponent } from './components/header/header.component';
     ServiceComponent,
     PageNotFoundComponent,
     CallbackComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpcomingConferencesPipe,
+    PastConferencesPipe
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
     <div id="collapseUpcomingConferences" class="collapse show" aria-labelledby="headingUpcomingConferences" data-parent="#accordion">
       <div class="card-body">
         <ul>
-          <li *ngFor="let upcomingConference of upcomingConferences">
+          <li *ngFor="let upcomingConference of conferences | upcomingConferences">
             <a href="{{upcomingConference.flyer}}">{{upcomingConference.name}}</a>
           </li>
         </ul>
@@ -31,7 +31,7 @@
     <div id="collapsePastConferences" class="collapse" aria-labelledby="headingPastConferences" data-parent="#accordion">
       <div class="card-body">
         <ul>
-          <li *ngFor="let pastConference of pastConferences">
+          <li *ngFor="let pastConference of conferences | pastConferences">
             <a href="{{pastConference.flyer}}">{{pastConference.name}}</a>
           </li>
         </ul>

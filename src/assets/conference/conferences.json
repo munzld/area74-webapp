@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Spring Conference 2010",
+    "flyer": "assets/conference/flyer/10sc.pdf",
+    "startDate": "2010-06-07",
+    "endDate": "2010-06-09"
+  },
+  {
+    "name": "Fall Conference 2010",
+    "flyer": "assets/conference/flyer/10fc.pdf",
+    "startDate": "2010-09-10",
+    "endDate": "2010-09-12"
+  },
+  {
+    "name": "Spring Conference 2011",
+    "flyer": "assets/conference/flyer/11sc.pdf",
+    "startDate": "2011-06-13",
+    "endDate": "2011-06-15"
+  },
+  {
+    "name": "Fall Conference 2011",
+    "flyer": "assets/conference/flyer/11fc.pdf",
+    "startDate": "2011-09-16",
+    "endDate": "2011-09-18"
+  },
+  {
+    "name": "Spring Conference 2012",
+    "flyer": "assets/conference/flyer/12sc.pdf",
+    "startDate": "2012-06-18",
+    "endDate": "2012-06-20"
+  },
+  {
+    "name": "Fall Conference 2012",
+    "flyer": "assets/conference/flyer/12fc.pdf",
+    "startDate": "2012-09-21",
+    "endDate": "2012-09-23"
+  },
+  {
+    "name": "Spring Conference 2013",
+    "flyer": "assets/conference/flyer/13sc.pdf",
+    "startDate": "2013-06-17",
+    "endDate": "2013-06-19"
+  },
+  {
+    "name": "Fall Conference 2013",
+    "flyer": "assets/conference/flyer/13fc.pdf",
+    "startDate": "2013-09-20",
+    "endDate": "2013-09-22"
+  },
+  {
+    "name": "Spring Conference 2014",
+    "flyer": "assets/conference/flyer/14sc.pdf",
+    "startDate": "2014-06-16",
+    "endDate": "2014-06-18"
+  },
+  {
+    "name": "Fall Conference 2014",
+    "flyer": "assets/conference/flyer/14fc.pdf",
+    "startDate": "2014-09-26",
+    "endDate": "2014-09-28"
+  },
+  {
+    "name": "Spring Conference 2015",
+    "flyer": "assets/conference/flyer/15sc.pdf",
+    "startDate": "2015-06-15",
+    "endDate": "2015-06-17"
+  },
+  {
+    "name": "Fall Conference 2015",
+    "flyer": "assets/conference/flyer/15fc.pdf",
+    "startDate": "2015-09-18",
+    "endDate": "2015-09-20"
+  },
+  {
+    "name": "Spring Conference 2016",
+    "flyer": "assets/conference/flyer/16sc.pdf",
+    "startDate": "2016-06-20",
+    "endDate": "2016-06-22"
+  },
+  {
+    "name": "Fall Conference 2016",
+    "flyer": "assets/conference/flyer/16fc.pdf",
+    "startDate": "2016-09-16",
+    "endDate": "2016-09-18"
+  },
+  {
+    "name": "Spring Conference 2017",
+    "flyer": "assets/conference/flyer/17sc.pdf",
+    "startDate": "2017-06-19",
+    "endDate": "2017-06-21"
+  },
+  {
+    "name": "Fall Conference 2017",
+    "flyer": "assets/conference/flyer/17fc.pdf",
+    "startDate": "2017-09-15",
+    "endDate": "2017-09-17"
+  },
+  {
+    "name": "Spring Conference 2018",
+    "flyer": "assets/conference/flyer/18sc.jpg",
+    "startDate": "2018-06-18",
+    "endDate": "2018-06-20"
+  },
+  {
+    "name": "Fall Conference 2018",
+    "flyer": "assets/conference/flyer/18fc.pdf",
+    "startDate": "2018-09-14",
+    "endDate": "2018-09-16"
+  },
+  {
+    "name": "Spring Conference 2019",
+    "flyer": "assets/conference/flyer/19sc.pdf",
+    "startDate": "2019-06-17",
+    "endDate": "2019-06-19"
+  },
+  {
+    "name": "Fall Conference 2019",
+    "flyer": "assets/conference/flyer/19fc.pdf",
+    "startDate": "2019-09-20",
+    "endDate": "2019-09-22"
+  },
+  {
+    "name": "Spring Conference 2020",
+    "flyer": "assets/conference/flyer/20sc.pdf",
+    "startDate": "2020-06-15",
+    "endDate": "2020-06-17"
+  }
+]

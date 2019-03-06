@@ -8,22 +8,16 @@ import { ConferenceService } from '../../services/conference/conference.service'
 })
 export class ConferenceComponent implements OnInit {
 
-  pastConferences = [];
-  upcomingConferences = [];
+  conferences = [];
 
   constructor(private conferenceService: ConferenceService) { }
 
   ngOnInit() {
-    this.getPastConferences();
-    this.getUpcomingConferences();
+    this.getConferences();
   }
 
-  getPastConferences(): void {
-    this.conferenceService.getPastConferences().subscribe(pastConferences => this.pastConferences = pastConferences);
-  }
-
-  getUpcomingConferences(): void {
-    this.conferenceService.getUpcomingConferences().subscribe(upcomingConferences => this.upcomingConferences = upcomingConferences);
+  getConferences(): void {
+    this.conferenceService.getConferences().subscribe(conferences => this.conferences = conferences);
   }
 
 }
