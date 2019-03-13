@@ -4,3 +4,11 @@
   font-size: 1.25rem;
   background-color: #E0D3AF !important;
 }
+
+.blue-link {
+  color:#007bff;
+}
+
+.blue-link:hover {
+  color: #0056b3;
+}

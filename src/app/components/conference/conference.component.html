@@ -14,7 +14,7 @@
       <div class="card-body">
         <ul>
           <li *ngFor="let upcomingConference of conferences | upcomingConferences">
-            <a href="{{upcomingConference.flyer}}">{{upcomingConference.name}}</a>
+            <a class="blue-link" href="{{upcomingConference.flyer}}">{{upcomingConference.name}}</a>
           </li>
         </ul>
       </div>
@@ -32,7 +32,7 @@
       <div class="card-body">
         <ul>
           <li *ngFor="let pastConference of conferences | pastConferences">
-            <a href="{{pastConference.flyer}}">{{pastConference.name}}</a>
+            <a class="blue-link" href="{{pastConference.flyer}}">{{pastConference.name}}</a>
           </li>
         </ul>
       </div>

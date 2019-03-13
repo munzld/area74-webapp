@@ -16,7 +16,7 @@
           <div id="collapsePresentation" class="collapse" aria-labelledby="headingPresentation" data-parent="#accordionPresentation">
             <div class="card-body">
               <ul>
-                <li *ngFor="let presentation of presentations"><a href="{{presentation.asset}}" target="_blank">{{presentation.name}}</a></li>
+                <li *ngFor="let presentation of presentations"><a class="blue-link" href="{{presentation.asset}}" target="_blank">{{presentation.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -36,7 +36,7 @@
           <div id="collapseAreaCommitteeMinutes" class="collapse" aria-labelledby="headingAreaCommitteeMinutes" data-parent="#accordionAreaCommittee">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let minutes of areaCommitteeMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
+                <li *ngFor="let minutes of areaCommitteeMinutes"><a class="blue-link" href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -52,7 +52,7 @@
           <div id="collapseAreaCommitteeReports" class="collapse" aria-labelledby="headingAreaCommitteeReports" data-parent="#accordionAreaCommittee">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let report of areaCommitteeReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
+                <li *ngFor="let report of areaCommitteeReports"><a class="blue-link" href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -72,7 +72,7 @@
           <div id="collapseAreaAssemblyMinutes" class="collapse" aria-labelledby="headingAreaAssemblyMinutes" data-parent="#accordionAreaAssembly">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let minutes of areaAssemblyMinutes"><a href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
+                <li *ngFor="let minutes of areaAssemblyMinutes"><a class="blue-link" href="{{minutes.asset}}" target="_blank">{{minutes.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -88,7 +88,7 @@
           <div id="collapseAreaAssemblyReports" class="collapse" aria-labelledby="headingAreaAssemblyReports" data-parent="#accordionAreaAssembly">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let report of areaAssemblyReports"><a href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
+                <li *ngFor="let report of areaAssemblyReports"><a class="blue-link" href="{{report.asset}}" target="_blank">{{report.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -118,7 +118,7 @@
     <div id="collapseArchive" class="collapse" aria-labelledby="headingArchive" data-parent="#accordionArchive">
       <div class="card-body">
         <ul class="card-text">
-          <li *ngFor="let archive of archives"><a href="{{archive.asset}}" target="_blank">{{archive.name}}</a></li>
+          <li *ngFor="let archive of archives"><a class="blue-link" href="{{archive.asset}}" target="_blank">{{archive.name}}</a></li>
         </ul>
       </div>
     </div>
