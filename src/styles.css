@@ -12,3 +12,7 @@
 .blue-link:hover {
   color: #0056b3;
 }
+
+.white-background {
+  background-color: #ffffff !important;
+}
