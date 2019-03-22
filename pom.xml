@@ -11,6 +11,7 @@
     <groupId>org.area74</groupId>
 	<artifactId>area74-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
     <modules>
         <module>area74-server</module>
