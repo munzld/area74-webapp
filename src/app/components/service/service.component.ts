@@ -15,6 +15,7 @@ export class ServiceComponent implements OnInit {
 
   presentations = [];
   archives = [];
+  areaAssemblyAgendas = [];
   areaAssemblyMinutes = [];
   areaAssemblyReports = [];
   areaCommitteeMinutes = [];
@@ -32,6 +33,7 @@ export class ServiceComponent implements OnInit {
   ngOnInit() {
     this.getPresentations();
     this.getArchives();
+    this.getAreaAssemblyAgendas();
     this.getAreaAssemblyMinutes();
     this.getAreaAssemblyReports();
     this.getAreaCommitteeMinutes();
@@ -44,6 +46,10 @@ export class ServiceComponent implements OnInit {
 
   getArchives(): void {
     this.archiveService.getArchives().subscribe(archives => this.archives = archives);
+  }
+
+  getAreaAssemblyAgendas(): void {
+    this.areaAssemblyService.getAgendas().subscribe(areaAssemblyAgendas => this.areaAssemblyAgendas = areaAssemblyAgendas);
   }
 
   getAreaAssemblyMinutes(): void {

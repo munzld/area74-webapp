@@ -9,6 +9,10 @@ export class AreaAssemblyService {
 
   constructor(private http: HttpClient) { }
 
+  public getAgendas(): Observable<any> {
+    return this.http.get('./assets/service/area-assembly/agendas/area-assembly-agendas.json');
+  }
+
   public getMinutes(): Observable<any> {
     return this.http.get('./assets/service/area-assembly/minutes/area-assembly-minutes.json');
   }
