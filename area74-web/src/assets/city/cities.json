@@ -327,7 +327,7 @@
     "id": 54,
     "city": "Grantsburg",
     "state": "Wisconsin",
-    "district": ""
+    "district": 23
   },
   {
     "id": 55,
@@ -352,12 +352,6 @@
     "city": "Hancock",
     "state": "Michigan",
     "district": 21
-  },
-  {
-    "id": 59,
-    "city": "Hixton",
-    "state": "Wisconsin",
-    "district": ""
   },
   {
     "id": 60,
@@ -828,12 +822,6 @@
     "district": 6
   },
   {
-    "id": 138,
-    "city": "Sauk City",
-    "state": "Wisconsin",
-    "district": ""
-  },
-  {
     "id": 139,
     "city": "Schofield",
     "state": "Wisconsin",
@@ -987,7 +975,7 @@
     "id": 164,
     "city": "Wakefield",
     "state": "Michigan",
-    "district": ""
+    "district": 15
   },
   {
     "id": 165,
@@ -1017,7 +1005,7 @@
     "id": 169,
     "city": "Wausaukee",
     "state": "Wisconsin",
-    "district": ""
+    "district": 9
   },
   {
     "id": 170,
@@ -1090,5 +1078,11 @@
     "city": "Germfask",
     "state": "Michigan",
     "district": 20
+  },
+  {
+    "id": 182,
+    "city": "Whitehall",
+    "state": "Wisconsin",
+    "district": 5
   }
 ]
