@@ -19,9 +19,9 @@ import { ServiceComponent } from './service/service.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './user/auth.guard';
 import { CallbackComponent } from './callback/callback.component';
+import { LoginComponent } from './user/login.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'meetings', component: MeetingsComponent },
   { path: 'calendar', component: CalendarComponent },
@@ -37,12 +37,14 @@ const routes: Routes = [
   { path: 'guidelines', component: GuidelinesComponent },
   { path: 'directory', component: DirectoryComponent },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
-  { path: 'callback', component: CallbackComponent},
+  { path: 'callback', component: CallbackComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

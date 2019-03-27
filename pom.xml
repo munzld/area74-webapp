@@ -17,4 +17,15 @@
         <module>area74-server</module>
         <module>area74-web</module>
     </modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>area74-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

@@ -2,95 +2,33 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import * as auth0 from 'auth0-js';
+import { User } from './user';
 
 @Injectable()
 export class AuthService {
+  currentUser: User;
+  redirectUrl: string;
 
-  private _idToken: string;
-  private _accessToken: string;
-  private _expiresAt: number;
-
-  auth0 = new auth0.WebAuth({
-    clientID: environment.clientID,
-    domain: 'area74.auth0.com',
-    responseType: 'token id_token',
-    redirectUri: environment.serverUrl + '/callback',
-    scope: 'openid'
-  });
-
-  constructor(public router: Router) {
-    this._idToken = '';
-    this._accessToken = '';
-    this._expiresAt = 0;
+  get isLoggedIn(): boolean {
+    return !!this.currentUser;
   }
 
-  get accessToken(): string {
-    return this._accessToken;
+  constructor(private router: Router) { }
+
+  login(userName: string, password: string): void {
+    if (!userName || !password) {
+      return;
+    }
+
+    this.currentUser = {
+      id: 2,
+      userName: userName
+    };
+
   }
 
-  get idToken(): string {
-    return this._idToken;
+  logout(): void {
+    this.currentUser = null;
+    this.router.navigate(['/home']);
   }
-
-  public login(): void {
-    this.auth0.authorize();
-  }
-
-  public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.localLogin(authResult);
-        this.router.navigate(['/service']);
-      } else if (err) {
-        this.router.navigate(['/service']);
-        console.log(err);
-      }
-    });
-  }
-
-  private localLogin(authResult): void {
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem('isLoggedIn', 'true');
-    // Set the time that the access token will expire at
-    const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
-    this._accessToken = authResult.accessToken;
-    this._idToken = authResult.idToken;
-    this._expiresAt = expiresAt;
-  }
-
-  public renewTokens(): void {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.localLogin(authResult);
-      } else if (err) {
-        alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
-        this.logout();
-      }
-    });
-  }
-
-  public logout(): void {
-    // Remove tokens and expiry time
-    this._accessToken = '';
-    this._idToken = '';
-    this._expiresAt = 0;
-    // Remove isLoggedIn flag from localStorage
-    localStorage.removeItem('isLoggedIn');
-    // Log out of Auth0 session
-    // Ensure that returnTo URL is specified in Auth0
-    // Application settings for Allowed Logout URLs
-    this.auth0.logout({
-      returnTo: environment.serverUrl,
-      clientID: environment.clientID
-    });
-  }
-
-  public isAuthenticated(): boolean {
-    // Check whether the current time is past the
-    // access token's expiry time
-    return new Date().getTime() < this._expiresAt;
-  }
-
 }

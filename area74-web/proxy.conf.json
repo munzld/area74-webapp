@@ -1,0 +1,10 @@
+{
+  "/area74-web/": {
+    "target": "http://localhost:8080",
+    "secure": false,
+	  "headers": {
+      "AccessRoles": "SampleRole",
+      "userid": "localuser"
+    }
+  }
+}

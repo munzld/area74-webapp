@@ -1,0 +1,12 @@
+# Base Config
+spring:
+  main:
+    banner-mode: "off"
+logging:
+  pattern:
+    file: "%date{ISO8601} %-5level %logger{15} - %msg +[%replace(%mdc){'[\r\n]', '_'}] #[%marker]%n%rEx{15}"
+    console:
+  level:
+    root: INFO
+    org.springframework.aop.interceptor.PerformanceMonitorInterceptor: TRACE
+  file: /logs/demo-app/demo-app.${platform.type:local}.${serverName:localhost}.log
