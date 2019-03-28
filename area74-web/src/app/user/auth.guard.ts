@@ -1,25 +1,36 @@
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
+import { CanActivate, Router, Route, RouterStateSnapshot, CanLoad, ActivatedRouteSnapshot } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+
+import { User } from './user';
+import { UserService } from './user.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+export class CanActivateViaAuthGuard implements CanActivate, CanLoad {
+  constructor(private userService: UserService, private router: Router) {}
 
   canActivate(
-    next: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.checkLoggedIn(state.url);
+    return this.isAuthenticated(state.url);
   }
 
-  checkLoggedIn(url: string): boolean {
-    if (this.authService.isLoggedIn) {
-      return true;
-    }
-    this.authService.redirectUrl = url;
-    this.router.navigate(['/login']);
-    return false;
+  canLoad(route: Route): Observable<boolean> {
+    return this.isAuthenticated(route.path);
+  }
+
+  private isAuthenticated(url: string): Observable<boolean> {
+    return this.userService.getCurrentUser().pipe(
+      map((user: User) => {
+        return true;
+      }),
+      catchError(err => {
+        this.userService.redirectUrl = url;
+        this.router.navigate(['/login']);
+        return of(false);
+      })
+    );
   }
 }

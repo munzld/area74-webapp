@@ -8,13 +8,13 @@
       <fieldset>
 
         <div class="form-group row">
-          <label class="col-md-2 col-form-label" for="userNameId">User Name</label>
+          <label class="col-md-2 col-form-label" for="usernameId">User Name</label>
           <div class="col-md-8">
-            <input class="form-control" id="userNameId" type="text" placeholder="User Name (required)" required ngModel
-              name="userName" #userNameVar="ngModel"
-              [ngClass]="{'is-invalid': (userNameVar.touched || userNameVar.dirty) && !userNameVar.valid }" />
+            <input class="form-control" id="usernameId" type="text" placeholder="User Name (required)" required ngModel
+              name="username" #usernameVar="ngModel"
+              [ngClass]="{'is-invalid': (usernameVar.touched || usernameVar.dirty) && !usernameVar.valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="userNameVar.errors?.required">
+              <span *ngIf="usernameVar.errors?.required">
                 User name is required.
               </span>
             </span>
@@ -41,7 +41,7 @@
             <button class="btn btn-primary mr-3" type="submit" [disabled]="!loginForm.valid">
               Log In
             </button>
-            <button class="btn btn-outline-secondary" type="button" routerLink="'/home'">
+            <button class="btn btn-outline-secondary" type="button" routerLink="/home">
               Cancel
             </button>
           </div>

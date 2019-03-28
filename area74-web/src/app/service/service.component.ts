@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../user/auth.service';
+import { UserService } from '../user/user.service';
 import { PresentationService } from './presentation/presentation.service';
 import { ArchiveService } from './archive/archive.service';
 import { AreaAssemblyService } from './area-assembly/area-assembly.service';
@@ -12,7 +12,6 @@ import { AreaCommitteeService } from './area-committee/area-committee.service';
   styleUrls: ['./service.component.css']
 })
 export class ServiceComponent implements OnInit {
-
   presentations = [];
   archives = [];
   areaAssemblyAgendas = [];
@@ -21,14 +20,13 @@ export class ServiceComponent implements OnInit {
   areaCommitteeMinutes = [];
   areaCommitteeReports = [];
 
-
   constructor(
-    public authService: AuthService,
+    public userService: UserService,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getPresentations();
@@ -41,31 +39,56 @@ export class ServiceComponent implements OnInit {
   }
 
   getPresentations(): void {
-    this.presentationService.getPresentations().subscribe(presentations => this.presentations = presentations);
+    this.presentationService
+      .getPresentations()
+      .subscribe(presentations => (this.presentations = presentations));
   }
 
   getArchives(): void {
-    this.archiveService.getArchives().subscribe(archives => this.archives = archives);
+    this.archiveService
+      .getArchives()
+      .subscribe(archives => (this.archives = archives));
   }
 
   getAreaAssemblyAgendas(): void {
-    this.areaAssemblyService.getAgendas().subscribe(areaAssemblyAgendas => this.areaAssemblyAgendas = areaAssemblyAgendas);
+    this.areaAssemblyService
+      .getAgendas()
+      .subscribe(
+        areaAssemblyAgendas => (this.areaAssemblyAgendas = areaAssemblyAgendas)
+      );
   }
 
   getAreaAssemblyMinutes(): void {
-    this.areaAssemblyService.getMinutes().subscribe(areaAssemblyMinutes => this.areaAssemblyMinutes = areaAssemblyMinutes);
+    this.areaAssemblyService
+      .getMinutes()
+      .subscribe(
+        areaAssemblyMinutes => (this.areaAssemblyMinutes = areaAssemblyMinutes)
+      );
   }
 
   getAreaAssemblyReports(): void {
-    this.areaAssemblyService.getReports().subscribe(areaAssemblyReports => this.areaAssemblyReports = areaAssemblyReports);
+    this.areaAssemblyService
+      .getReports()
+      .subscribe(
+        areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports)
+      );
   }
 
   getAreaCommitteeMinutes(): void {
-    this.areaCommitteeService.getMinutes().subscribe(areaCommitteeMinutes => this.areaCommitteeMinutes = areaCommitteeMinutes);
+    this.areaCommitteeService
+      .getMinutes()
+      .subscribe(
+        areaCommitteeMinutes =>
+          (this.areaCommitteeMinutes = areaCommitteeMinutes)
+      );
   }
 
   getAreaCommitteeReports(): void {
-    this.areaCommitteeService.getReports().subscribe(areaCommitteeReports => this.areaCommitteeReports = areaCommitteeReports);
+    this.areaCommitteeService
+      .getReports()
+      .subscribe(
+        areaCommitteeReports =>
+          (this.areaCommitteeReports = areaCommitteeReports)
+      );
   }
-
 }

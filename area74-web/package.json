@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
-    "server": "ng serve --base-href / --proxy-config proxy.conf.json",
     "test": "ng test --code-coverage --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,7 +22,6 @@
     "@angular/router": "7.0.2",
     "@ng-bootstrap/ng-bootstrap": "4.0.2",
     "angular-datatables": "7.0.0",
-    "auth0-js": "^9.10.1",
     "bootstrap": "4.2.1",
     "bootswatch": "4.2.1",
     "classlist.js": "^1.1.20150312",

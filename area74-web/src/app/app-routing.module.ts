@@ -14,14 +14,16 @@ import { InformationComponent } from './information/information.component';
 import { LinksComponent } from './links/links.component';
 import { LoginComponent } from './login/login.component';
 import { MeetingsComponent } from './meetings/meetings.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfessionalsComponent } from './professionals/professionals.component';
 import { ServiceComponent } from './service/service.component';
 import { StepsComponent } from './steps/steps.component';
 import { TraditionsComponent } from './traditions/traditions.component';
-import { AuthGuard } from './user/auth.guard';
+import { CanActivateViaAuthGuard } from './user/auth.guard';
+import { CanNotActivateViaAuthGuard } from './user/not-auth.guard';
+import { APP_BASE_HREF, LocationStrategy } from '@angular/common';
 
 const ROUTES: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'meetings', component: MeetingsComponent },
   { path: 'calendar', component: CalendarComponent },
@@ -36,15 +38,19 @@ const ROUTES: Routes = [
   { path: 'links', component: LinksComponent },
   { path: 'guidelines', component: GuidelinesComponent },
   { path: 'directory', component: DirectoryComponent },
-  { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
+  { path: 'service', component: ServiceComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'callback', component: CallbackComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'login', component: LoginComponent, canActivate: [CanNotActivateViaAuthGuard] },
+  { path: 'error/:errorType', loadChildren: './error/error.module#ErrorModule' },
+  { path: 'error', loadChildren: './error/error.module#ErrorModule' },
+  { path: '**', redirectTo: 'error/404' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '' }
+  ]
 })
 export class AppRoutingModule {}
