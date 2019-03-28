@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DistrictComponent } from './district.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [DistrictComponent],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class DistrictModule { }

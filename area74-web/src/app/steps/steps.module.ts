@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { SharedModule } from '../shared/shared.module';
 import { StepsComponent } from './steps.component';
 
 @NgModule({
   declarations: [StepsComponent],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class StepsModule { }

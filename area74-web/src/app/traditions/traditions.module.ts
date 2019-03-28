@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { SharedModule } from '../shared/shared.module';
 import { TraditionsComponent } from './traditions.component';
 
 @NgModule({
   declarations: [TraditionsComponent],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class TraditionsModule { }

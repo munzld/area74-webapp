@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { MeetingsComponent } from './meetings/meetings.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { DistrictComponent } from './district/district.component';
-import { ProfessionalsComponent } from './professionals/professionals.component';
-import { ConferenceComponent } from './conference/conference.component';
 import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.component';
-import { StepsComponent } from './steps/steps.component';
-import { TraditionsComponent } from './traditions/traditions.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { CallbackComponent } from './callback/callback.component';
 import { ConceptsComponent } from './concepts/concepts.component';
+import { ConferenceComponent } from './conference/conference.component';
+import { DirectoryComponent } from './directory/directory.component';
+import { DistrictComponent } from './district/district.component';
+import { GuidelinesComponent } from './guidelines/guidelines.component';
+import { HomeComponent } from './home/home.component';
 import { InformationComponent } from './information/information.component';
 import { LinksComponent } from './links/links.component';
-import { GuidelinesComponent } from './guidelines/guidelines.component';
-import { DirectoryComponent } from './directory/directory.component';
-import { ServiceComponent } from './service/service.component';
+import { LoginComponent } from './login/login.component';
+import { MeetingsComponent } from './meetings/meetings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfessionalsComponent } from './professionals/professionals.component';
+import { ServiceComponent } from './service/service.component';
+import { StepsComponent } from './steps/steps.component';
+import { TraditionsComponent } from './traditions/traditions.component';
 import { AuthGuard } from './user/auth.guard';
-import { CallbackComponent } from './callback/callback.component';
-import { LoginComponent } from './user/login.component';
 
 const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },

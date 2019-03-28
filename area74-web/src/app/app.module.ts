@@ -1,32 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CallbackComponent } from './callback/callback.component';
-import { AuthService } from './user/auth.service';
-import { AuthGuard } from './user/auth.guard';
-import { HeaderComponent } from './header/header.component';
+import { AppComponent } from './app.component';
 import { BridgingTheGapModule } from './bridging-the-gap/bridging-the-gap.module';
 import { CalendarModule } from './calendar/calendar.module';
+import { CallbackComponent } from './callback/callback.component';
 import { ConceptsModule } from './concepts/concepts.module';
 import { ConferenceModule } from './conference/conference.module';
 import { DirectoryModule } from './directory/directory.module';
 import { DistrictModule } from './district/district.module';
+import { FooterComponent } from './footer/footer.component';
 import { GuidelinesModule } from './guidelines/guidelines.module';
+import { HeaderComponent } from './header/header.component';
 import { HomeModule } from './home/home.module';
 import { InformationModule } from './information/information.module';
 import { LinksModule } from './links/links.module';
 import { MeetingsModule } from './meetings/meetings.module';
+import { NavComponent } from './nav/nav.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfessionalsModule } from './professionals/professionals.module';
 import { ServiceModule } from './service/service.module';
 import { StepsModule } from './steps/steps.module';
 import { TraditionsModule } from './traditions/traditions.module';
+import { AuthGuard } from './user/auth.guard';
+import { AuthService } from './user/auth.service';
 import { UserModule } from './user/user.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     InformationModule,
     LinksModule,
+    LoginModule,
     MeetingsModule,
     ProfessionalsModule,
     ServiceModule,

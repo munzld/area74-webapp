@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BridgingTheGapComponent } from './bridging-the-gap.component';
+
 import { SharedModule } from '../shared/shared.module';
+import { BridgingTheGapComponent } from './bridging-the-gap.component';
 
 @NgModule({
   declarations: [BridgingTheGapComponent],
   imports: [
-    CommonModule,
     SharedModule
   ]
 })
