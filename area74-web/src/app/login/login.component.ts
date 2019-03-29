@@ -22,7 +22,6 @@ export class LoginComponent {
   }
 
   login(loginForm: NgForm) {
-
     if (!loginForm || loginForm.invalid) {
       this.errorMessage = 'Please enter a user name and password.';
       return;
@@ -30,6 +29,7 @@ export class LoginComponent {
 
     const username = loginForm.form.value.username;
     const password = loginForm.form.value.password;
+
     this.userService.login(username, password)
       .pipe(first())
       .subscribe(

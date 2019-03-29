@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
@@ -22,7 +22,13 @@ export class UserService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>('login', { username: username, password: password })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Basic ' + btoa(username + ':' + password)
+      })
+    };
+
+    return this.http.post<any>('login', { username: username, password: password }, httpOptions)
       .pipe(map(user => {
         if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));

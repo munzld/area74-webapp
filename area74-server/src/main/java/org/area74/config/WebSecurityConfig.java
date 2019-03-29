@@ -13,25 +13,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                    .authorizeRequests()
-                    .anyRequest().permitAll()
-                    .antMatchers("/service").hasRole("USER");
-//        http
-//                .httpBasic()
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/index.html", "/", "/home", "/login").permitAll()
-//                .anyRequest().authenticated();
-//        http
-//                .httpBasic().and()
-//                .authorizeRequests()
-//                .antMatchers("/index.html", "/", "/home", "/login").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .csrf()
-//                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+         http
+             .csrf().disable()
+             .authorizeRequests()
+             .anyRequest().permitAll()
+             .antMatchers("/service").hasRole("USER")
+             .and()
+             .httpBasic();
     }
 
     @Override
