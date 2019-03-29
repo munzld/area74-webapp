@@ -1,3 +1,4 @@
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,7 +21,6 @@ import { StepsComponent } from './steps/steps.component';
 import { TraditionsComponent } from './traditions/traditions.component';
 import { CanActivateViaAuthGuard } from './user/auth.guard';
 import { CanNotActivateViaAuthGuard } from './user/not-auth.guard';
-import { APP_BASE_HREF, LocationStrategy } from '@angular/common';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -50,7 +50,8 @@ const ROUTES: Routes = [
   imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '' }
+    { provide: APP_BASE_HREF, useValue: '' },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ]
 })
 export class AppRoutingModule {}

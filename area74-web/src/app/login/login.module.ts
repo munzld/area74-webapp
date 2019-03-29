@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { throwIfAlreadyLoaded } from '../module-import-guard';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login.component';
 
 export const ROUTES: Routes = [
-  { path: '', component: LoginComponent, pathMatch: 'full' }
+  { path: '', component: LoginComponent }
 ];
 
 @NgModule({
@@ -16,4 +17,8 @@ export const ROUTES: Routes = [
     RouterModule
   ]
 })
-export class LoginModule {}
+export class LoginModule {
+  constructor(@Optional() @SkipSelf() parentModule: LoginModule) {
+    throwIfAlreadyLoaded(parentModule, 'LoginModule');
+  }
+}

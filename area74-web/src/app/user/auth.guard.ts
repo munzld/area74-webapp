@@ -10,10 +10,7 @@ import { UserService } from './user.service';
 export class CanActivateViaAuthGuard implements CanActivate, CanLoad {
   constructor(private userService: UserService, private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return this.isAuthenticated(state.url);
   }
 

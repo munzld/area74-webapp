@@ -12,7 +12,7 @@ export class CanNotActivateViaAuthGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.userService.getCurrentUser().pipe(
       map((user: User) => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
         return false;
       }),
       catchError(() => {

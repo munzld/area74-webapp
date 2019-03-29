@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
-
 import { HttpStatusService } from './http/http.status.service';
 import { UserService } from './user/user.service';
 
@@ -17,7 +16,7 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService, private httpStatusService: HttpStatusService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.httpStatusService.running.subscribe(running => {
       // setTimeout hack to make Angular happy
       setTimeout(() => {
@@ -34,6 +33,7 @@ export class AppComponent implements OnInit {
     interval(20 * 60 * 1000).subscribe(() => {
       this.updateUser();
     });
+
   }
 
   private updateUser(): void {
