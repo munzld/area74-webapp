@@ -2,7 +2,7 @@
   [
     {"district": 1, "meetings": "assets/meetings/district01.pdf", "website": "http://www.greenbayaa.org/"},
     {"district": 2, "meetings": "assets/meetings/district02.pdf", "website": "http://www.district02aa.org/"},
-    {"district": 3, "meetings": "assets/meetings/district03.pdf", "website": ""},
+    {"district": 3, "meetings": "assets/meetings/district03.pdf", "website": "http://wiaadistrict3.org/"},
     {"district": 4, "meetings": "assets/meetings/district04.pdf", "website": "http://www.aawidistrict04.org/"},
     {"district": 5, "meetings": "assets/meetings/district05.pdf", "website": "http://www.district05.org/"},
     {"district": 6, "meetings": "assets/meetings/district06.pdf", "website": ""}
