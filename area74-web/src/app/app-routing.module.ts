@@ -20,7 +20,6 @@ import { ServiceComponent } from './service/service.component';
 import { StepsComponent } from './steps/steps.component';
 import { TraditionsComponent } from './traditions/traditions.component';
 import { CanActivateViaAuthGuard } from './user/auth.guard';
-import { CanNotActivateViaAuthGuard } from './user/not-auth.guard';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -40,7 +39,7 @@ const ROUTES: Routes = [
   { path: 'directory', component: DirectoryComponent },
   { path: 'service', component: ServiceComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'callback', component: CallbackComponent },
-  { path: 'login', component: LoginComponent, canActivate: [CanNotActivateViaAuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'error/:errorType', loadChildren: './error/error.module#ErrorModule' },
   { path: 'error', loadChildren: './error/error.module#ErrorModule' },
   { path: '**', redirectTo: 'error/404' }

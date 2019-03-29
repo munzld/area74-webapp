@@ -8,40 +8,17 @@ import { User } from './user';
 
 @Injectable()
 export class UserService {
-  /**
-   * Watch this for user changes, if you need to be absolutely certain, call loadUser where needed.
-   */
-  currentUser: Observable<User>;
   redirectUrl: string;
   private currentUserSubject: BehaviorSubject<User>;
-
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
-}
+  currentUser: Observable<User>;
 
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(undefined);
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  getCurrentUser(): Observable<User> {
-    return this.http.get<User>('user').pipe(
-      map((user: User) => {
-        this.currentUserSubject.next(user);
-        return user;
-      }),
-      catchError(error => {
-        this.currentUserSubject.next(undefined);
-        return throwError(error);
-      })
-    );
-  }
-
-  /**
-   * Call this to just execute a retrieval of the user and update the Observable in this class
-   */
-  retrieveUser(): void {
-    this.getCurrentUser().subscribe(() => {}, () => {});
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
 
   login(username: string, password: string) {
@@ -59,6 +36,5 @@ export class UserService {
   logout(): void {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    this.router.navigate(['/']);
   }
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { Component } from '@angular/core';
+
 import { HttpStatusService } from './http/http.status.service';
+import { User } from './user/user';
 import { UserService } from './user/user.service';
 
 @Component({
@@ -8,35 +9,14 @@ import { UserService } from './user/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  user;
+  currentUser: User;
 
   running = false;
 
-  constructor(private userService: UserService, private httpStatusService: HttpStatusService) {}
-
-  ngOnInit(): void {
-    this.httpStatusService.running.subscribe(running => {
-      // setTimeout hack to make Angular happy
-      setTimeout(() => {
-        this.running = running;
-      }, 100);
-    });
-
-    this.userService.currentUser.subscribe(user => this.user = user, () => this.user = undefined);
-
-    // initial load
-    this.updateUser();
-
-    // keep alive
-    interval(20 * 60 * 1000).subscribe(() => {
-      this.updateUser();
-    });
-
+  constructor(private userService: UserService, private httpStatusService: HttpStatusService) {
+    this.userService.currentUser.subscribe(user => this.currentUser = user, () => this.currentUser = undefined);
   }
 
-  private updateUser(): void {
-    this.userService.retrieveUser();
-  }
 }

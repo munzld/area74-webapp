@@ -4,6 +4,8 @@ import { PresentationService } from './presentation/presentation.service';
 import { ArchiveService } from './archive/archive.service';
 import { AreaAssemblyService } from './area-assembly/area-assembly.service';
 import { AreaCommitteeService } from './area-committee/area-committee.service';
+import { User } from '../user/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,6 +14,7 @@ import { AreaCommitteeService } from './area-committee/area-committee.service';
   styleUrls: ['./service.component.css']
 })
 export class ServiceComponent implements OnInit {
+  currentUser: User;
   presentations = [];
   archives = [];
   areaAssemblyAgendas = [];
@@ -21,12 +24,15 @@ export class ServiceComponent implements OnInit {
   areaCommitteeReports = [];
 
   constructor(
-    public userService: UserService,
+    private userService: UserService,
+    private router: Router,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
-  ) {}
+  ) {
+    this.userService.currentUser.subscribe(user => this.currentUser = user);
+  }
 
   ngOnInit() {
     this.getPresentations();
@@ -90,5 +96,10 @@ export class ServiceComponent implements OnInit {
         areaCommitteeReports =>
           (this.areaCommitteeReports = areaCommitteeReports)
       );
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/home']);
   }
 }

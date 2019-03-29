@@ -10,24 +10,22 @@ import { UserService } from './user.service';
 export class CanActivateViaAuthGuard implements CanActivate, CanLoad {
   constructor(private userService: UserService, private router: Router) {}
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.isAuthenticated(state.url);
   }
 
-  canLoad(route: Route): Observable<boolean> {
+  canLoad(route: Route): boolean {
     return this.isAuthenticated(route.path);
   }
 
-  private isAuthenticated(url: string): Observable<boolean> {
-    return this.userService.getCurrentUser().pipe(
-      map((user: User) => {
-        return true;
-      }),
-      catchError(err => {
-        this.userService.redirectUrl = url;
-        this.router.navigate(['/login']);
-        return of(false);
-      })
-    );
+  private isAuthenticated(url: string): boolean {
+    const currentUser = this.userService.currentUserValue;
+    if (currentUser) {
+      return true;
+    }
+
+    this.userService.redirectUrl = url;
+    this.router.navigate(['/login']);
+    return false;
   }
 }

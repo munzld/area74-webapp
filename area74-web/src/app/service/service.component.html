@@ -140,6 +140,6 @@
     </div>
   </div>
 </div>
-<button class="btn btn-primary btn-margin" *ngIf="userService.currentUserValue" (click)="userService.logout()">
+<button class="btn btn-primary btn-margin" *ngIf="currentUser" (click)="logout()">
     Logout
 </button>
