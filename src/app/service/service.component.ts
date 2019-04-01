@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user/user.service';
-import { PresentationService } from './presentation/presentation.service';
+import { Router } from '@angular/router';
+
 import { ArchiveService } from './archive/archive.service';
 import { AreaAssemblyService } from './area-assembly/area-assembly.service';
 import { AreaCommitteeService } from './area-committee/area-committee.service';
-import { User } from '../user/user';
-import { Router } from '@angular/router';
-
+import { PresentationService } from './presentation/presentation.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-service',
@@ -14,7 +13,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./service.component.css']
 })
 export class ServiceComponent implements OnInit {
-  currentUser: User;
   presentations = [];
   archives = [];
   areaAssemblyAgendas = [];
@@ -24,14 +22,13 @@ export class ServiceComponent implements OnInit {
   areaCommitteeReports = [];
 
   constructor(
-    private userService: UserService,
+    private authService: AuthService,
     private router: Router,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
   ) {
-    this.userService.currentUser.subscribe(user => this.currentUser = user);
   }
 
   ngOnInit() {
@@ -99,7 +96,7 @@ export class ServiceComponent implements OnInit {
   }
 
   logout() {
-    this.userService.logout();
+    this.authService.logout();
     this.router.navigate(['/home']);
   }
 }

@@ -1,4 +1,3 @@
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -13,13 +12,12 @@ import { GuidelinesComponent } from './guidelines/guidelines.component';
 import { HomeComponent } from './home/home.component';
 import { InformationComponent } from './information/information.component';
 import { LinksComponent } from './links/links.component';
-import { LoginComponent } from './login/login.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { ProfessionalsComponent } from './professionals/professionals.component';
 import { ServiceComponent } from './service/service.component';
 import { StepsComponent } from './steps/steps.component';
 import { TraditionsComponent } from './traditions/traditions.component';
-import { CanActivateViaAuthGuard } from './user/auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,20 +35,13 @@ const ROUTES: Routes = [
   { path: 'links', component: LinksComponent },
   { path: 'guidelines', component: GuidelinesComponent },
   { path: 'directory', component: DirectoryComponent },
-  { path: 'service', component: ServiceComponent, canActivate: [CanActivateViaAuthGuard] },
+  { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
   { path: 'callback', component: CallbackComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'error/:errorType', loadChildren: './error/error.module#ErrorModule' },
-  { path: 'error', loadChildren: './error/error.module#ErrorModule' },
-  { path: '**', redirectTo: 'error/404' }
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES)],
-  exports: [RouterModule],
-  providers: [
-    { provide: APP_BASE_HREF, useValue: '' },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

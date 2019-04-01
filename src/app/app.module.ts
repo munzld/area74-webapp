@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,16 +17,14 @@ import { HeaderComponent } from './header/header.component';
 import { HomeModule } from './home/home.module';
 import { InformationModule } from './information/information.module';
 import { LinksModule } from './links/links.module';
-import { LoginModule } from './login/login.module';
 import { MeetingsModule } from './meetings/meetings.module';
 import { NavComponent } from './nav/nav.component';
 import { ProfessionalsModule } from './professionals/professionals.module';
 import { ServiceModule } from './service/service.module';
 import { StepsModule } from './steps/steps.module';
 import { TraditionsModule } from './traditions/traditions.module';
-import { UserModule } from './user/user.module';
-import { HttpStatusService } from './http/http.status.service';
-import { AppHttpInterceptor } from './http/app-http.interceptor';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -50,22 +48,16 @@ import { AppHttpInterceptor } from './http/app-http.interceptor';
     HttpClientModule,
     InformationModule,
     LinksModule,
-    LoginModule,
     MeetingsModule,
     ProfessionalsModule,
     ServiceModule,
     StepsModule,
-    TraditionsModule,
-    UserModule
+    TraditionsModule
   ],
+  bootstrap: [AppComponent],
   providers: [
-    HttpStatusService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AppHttpInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+    AuthGuard,
+    AuthService
+  ]
 })
 export class AppModule {}
