@@ -22,7 +22,7 @@ export class ServiceComponent implements OnInit {
   areaCommitteeReports = [];
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,

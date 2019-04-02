@@ -14,7 +14,7 @@ export class AuthService {
     clientID: environment.clientID,
     domain: 'area74.auth0.com',
     responseType: 'token id_token',
-    redirectUri: environment.serverUrl + '/callback',
+    redirectUri: environment.serverUrl + '/callback/',
     scope: 'openid'
   });
 
