@@ -42,7 +42,7 @@ export class AuthService {
         this.localLogin(authResult);
         this.router.navigate(['/service']);
       } else if (err) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/service']);
         console.log(err);
       }
     });

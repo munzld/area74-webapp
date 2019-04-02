@@ -78,12 +78,4 @@ export class ServiceComponent implements OnInit {
       .getReports()
       .subscribe(areaCommitteeReports => (this.areaCommitteeReports = areaCommitteeReports));
   }
-
-  isAuthenticated() {
-    this.authService.isAuthenticated();
-  }
-
-  logout() {
-    this.authService.logout();
-  }
 }
