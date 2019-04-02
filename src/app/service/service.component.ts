@@ -23,13 +23,11 @@ export class ServiceComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.getPresentations();
@@ -48,55 +46,44 @@ export class ServiceComponent implements OnInit {
   }
 
   getArchives(): void {
-    this.archiveService
-      .getArchives()
-      .subscribe(archives => (this.archives = archives));
+    this.archiveService.getArchives().subscribe(archives => (this.archives = archives));
   }
 
   getAreaAssemblyAgendas(): void {
     this.areaAssemblyService
       .getAgendas()
-      .subscribe(
-        areaAssemblyAgendas => (this.areaAssemblyAgendas = areaAssemblyAgendas)
-      );
+      .subscribe(areaAssemblyAgendas => (this.areaAssemblyAgendas = areaAssemblyAgendas));
   }
 
   getAreaAssemblyMinutes(): void {
     this.areaAssemblyService
       .getMinutes()
-      .subscribe(
-        areaAssemblyMinutes => (this.areaAssemblyMinutes = areaAssemblyMinutes)
-      );
+      .subscribe(areaAssemblyMinutes => (this.areaAssemblyMinutes = areaAssemblyMinutes));
   }
 
   getAreaAssemblyReports(): void {
     this.areaAssemblyService
       .getReports()
-      .subscribe(
-        areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports)
-      );
+      .subscribe(areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports));
   }
 
   getAreaCommitteeMinutes(): void {
     this.areaCommitteeService
       .getMinutes()
-      .subscribe(
-        areaCommitteeMinutes =>
-          (this.areaCommitteeMinutes = areaCommitteeMinutes)
-      );
+      .subscribe(areaCommitteeMinutes => (this.areaCommitteeMinutes = areaCommitteeMinutes));
   }
 
   getAreaCommitteeReports(): void {
     this.areaCommitteeService
       .getReports()
-      .subscribe(
-        areaCommitteeReports =>
-          (this.areaCommitteeReports = areaCommitteeReports)
-      );
+      .subscribe(areaCommitteeReports => (this.areaCommitteeReports = areaCommitteeReports));
+  }
+
+  isAuthenticated() {
+    this.authService.isAuthenticated();
   }
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/home']);
   }
 }

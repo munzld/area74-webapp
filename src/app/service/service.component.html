@@ -140,6 +140,6 @@
     </div>
   </div>
 </div>
-<button class="btn btn-primary btn-margin" *ngIf="currentUser" (click)="logout()">
+<button class="btn btn-primary btn-margin" *ngIf="isAuthenticated()" (click)="logout()">
     Logout
 </button>

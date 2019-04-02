@@ -6,7 +6,6 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
-
   private _idToken: string;
   private _accessToken: string;
   private _expiresAt: number;
@@ -40,21 +39,18 @@ export class AuthService {
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
         this.localLogin(authResult);
         this.router.navigate(['/service']);
       } else if (err) {
-        this.router.navigate(['/service']);
+        this.router.navigate(['/home']);
         console.log(err);
       }
     });
   }
 
   private localLogin(authResult): void {
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem('isLoggedIn', 'true');
     // Set the time that the access token will expire at
-    const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+    const expiresAt = authResult.expiresIn * 1000 + Date.now();
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
@@ -76,11 +72,7 @@ export class AuthService {
     this._accessToken = '';
     this._idToken = '';
     this._expiresAt = 0;
-    // Remove isLoggedIn flag from localStorage
-    localStorage.removeItem('isLoggedIn');
-    // Log out of Auth0 session
-    // Ensure that returnTo URL is specified in Auth0
-    // Application settings for Allowed Logout URLs
+
     this.auth0.logout({
       returnTo: environment.serverUrl,
       clientID: environment.clientID
@@ -90,7 +82,6 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    return new Date().getTime() < this._expiresAt;
+    return this._accessToken && Date.now() < this._expiresAt;
   }
-
 }
