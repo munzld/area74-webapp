@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
-import { MeetingsComponent } from './components/meetings/meetings.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
-import { DistrictComponent } from './components/district/district.component';
-import { ProfessionalsComponent } from './components/professionals/professionals.component';
-import { ConferenceComponent } from './components/conference/conference.component';
-import { BridgingTheGapComponent } from './components/bridging-the-gap/bridging-the-gap.component';
-import { StepsComponent } from './components/steps/steps.component';
-import { TraditionsComponent } from './components/traditions/traditions.component';
-import { ConceptsComponent } from './components/concepts/concepts.component';
-import { InformationComponent } from './components/information/information.component';
-import { LinksComponent } from './components/links/links.component';
-import { GuidelinesComponent } from './components/guidelines/guidelines.component';
-import { DirectoryComponent } from './components/directory/directory.component';
-import { ServiceComponent } from './components/service/service.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { AuthGuard } from './services/auth/auth.guard';
-import { CallbackComponent } from './components/callback/callback.component';
+import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { CallbackComponent } from './callback/callback.component';
+import { ConceptsComponent } from './concepts/concepts.component';
+import { ConferenceComponent } from './conference/conference.component';
+import { DirectoryComponent } from './directory/directory.component';
+import { DistrictComponent } from './district/district.component';
+import { GuidelinesComponent } from './guidelines/guidelines.component';
+import { HomeComponent } from './home/home.component';
+import { InformationComponent } from './information/information.component';
+import { LinksComponent } from './links/links.component';
+import { MeetingsComponent } from './meetings/meetings.component';
+import { ProfessionalsComponent } from './professionals/professionals.component';
+import { ServiceComponent } from './service/service.component';
+import { StepsComponent } from './steps/steps.component';
+import { TraditionsComponent } from './traditions/traditions.component';
+import { AuthGuard } from './auth/auth.guard';
 
-const routes: Routes = [
+const ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'meetings', component: MeetingsComponent },
@@ -37,12 +36,12 @@ const routes: Routes = [
   { path: 'guidelines', component: GuidelinesComponent },
   { path: 'directory', component: DirectoryComponent },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
-  { path: 'callback', component: CallbackComponent},
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'callback', component: CallbackComponent },
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -1,74 +1,63 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DataTablesModule } from 'angular-datatables';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav/nav.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MeetingsComponent } from './components/meetings/meetings.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
-import { DistrictComponent } from './components/district/district.component';
-import { ProfessionalsComponent } from './components/professionals/professionals.component';
-import { ConferenceComponent } from './components/conference/conference.component';
-import { StepsComponent } from './components/steps/steps.component';
-import { TraditionsComponent } from './components/traditions/traditions.component';
-import { ConceptsComponent } from './components/concepts/concepts.component';
-import { InformationComponent } from './components/information/information.component';
-import { LinksComponent } from './components/links/links.component';
-import { GuidelinesComponent } from './components/guidelines/guidelines.component';
-import { DirectoryComponent } from './components/directory/directory.component';
-import { BridgingTheGapComponent } from './components/bridging-the-gap/bridging-the-gap.component';
-import { ServiceComponent } from './components/service/service.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CallbackComponent } from './components/callback/callback.component';
-import { AuthService } from './services/auth/auth.service';
-import { AuthGuard } from './services/auth/auth.guard';
-import { HeaderComponent } from './components/header/header.component';
-import { UpcomingConferencesPipe } from './shared/pipes/upcoming-conferences.pipe';
-import { PastConferencesPipe } from './shared/pipes/past-conferences.pipe';
+import { AppComponent } from './app.component';
+import { BridgingTheGapModule } from './bridging-the-gap/bridging-the-gap.module';
+import { CalendarModule } from './calendar/calendar.module';
+import { CallbackComponent } from './callback/callback.component';
+import { ConceptsModule } from './concepts/concepts.module';
+import { ConferenceModule } from './conference/conference.module';
+import { DirectoryModule } from './directory/directory.module';
+import { DistrictModule } from './district/district.module';
+import { FooterComponent } from './footer/footer.component';
+import { GuidelinesModule } from './guidelines/guidelines.module';
+import { HeaderComponent } from './header/header.component';
+import { HomeModule } from './home/home.module';
+import { InformationModule } from './information/information.module';
+import { LinksModule } from './links/links.module';
+import { MeetingsModule } from './meetings/meetings.module';
+import { NavComponent } from './nav/nav.component';
+import { ProfessionalsModule } from './professionals/professionals.module';
+import { ServiceModule } from './service/service.module';
+import { StepsModule } from './steps/steps.module';
+import { TraditionsModule } from './traditions/traditions.module';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    FooterComponent,
-    HomeComponent,
-    MeetingsComponent,
-    CalendarComponent,
-    DistrictComponent,
-    ProfessionalsComponent,
-    ConferenceComponent,
-    StepsComponent,
-    TraditionsComponent,
-    ConceptsComponent,
-    InformationComponent,
-    LinksComponent,
-    GuidelinesComponent,
-    DirectoryComponent,
-    BridgingTheGapComponent,
-    ServiceComponent,
-    PageNotFoundComponent,
     CallbackComponent,
+    FooterComponent,
     HeaderComponent,
-    UpcomingConferencesPipe,
-    PastConferencesPipe
+    NavComponent
   ],
   imports: [
-    BrowserModule,
-    NgbModule,
     AppRoutingModule,
+    BridgingTheGapModule,
+    BrowserModule,
+    CalendarModule,
+    ConceptsModule,
+    ConferenceModule,
+    DirectoryModule,
+    DistrictModule,
+    GuidelinesModule,
+    HomeModule,
     HttpClientModule,
-    DataTablesModule,
-    ReactiveFormsModule
+    InformationModule,
+    LinksModule,
+    MeetingsModule,
+    ProfessionalsModule,
+    ServiceModule,
+    StepsModule,
+    TraditionsModule
   ],
+  bootstrap: [AppComponent],
   providers: [
-    AuthService, AuthGuard
-  ],
-  bootstrap: [AppComponent]
+    AuthGuard,
+    AuthService
+  ]
 })
-export class AppModule { }
+export class AppModule {}
