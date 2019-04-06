@@ -7,7 +7,6 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
@@ -17,5 +16,4 @@ export class AppComponent implements OnInit {
       this.auth.renewTokens();
     }
   }
-
 }

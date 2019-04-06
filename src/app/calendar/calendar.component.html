@@ -17,25 +17,25 @@
     <tbody>
       <tr *ngFor="let event of events">
         <td>
-          {{event?.date}}
+          {{ event?.date }}
         </td>
         <td *ngIf="!event?.link">
-          {{event?.description}}
+          {{ event?.description }}
         </td>
         <td *ngIf="event?.link">
-          <a class="blue-link" href="{{event?.link}}" target="_blank">{{event?.description}}</a>
+          <a class="blue-link" href="{{ event?.link }}" target="_blank">{{ event?.description }}</a>
         </td>
         <td>
-          {{event?.place}}
+          {{ event?.place }}
         </td>
         <td>
-          {{event?.address}}
+          {{ event?.address }}
         </td>
         <td>
-          {{event?.city}}
+          {{ event?.city }}
         </td>
         <td>
-          {{event?.state}}
+          {{ event?.state }}
         </td>
       </tr>
     </tbody>
