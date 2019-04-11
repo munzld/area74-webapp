@@ -1,17 +1,13 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AuthService } from './auth.service';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { throwIfAlreadyLoaded } from '../module-import-guard';
 import { AuthGuard } from './auth.guard';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './auth.service';
 
 @NgModule({
-  imports: [CommonModule, AngularFireAuthModule]
+  providers: [AuthService, AuthGuard]
 })
 export class AuthModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AuthModule,
-      providers: [AuthService, AuthGuard]
-    };
+  constructor(@Optional() @SkipSelf() parentModule: AuthModule) {
+    throwIfAlreadyLoaded(parentModule, 'AuthModule');
   }
 }

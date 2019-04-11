@@ -1,42 +1,52 @@
 [
   {
+    "id": 1,
     "name": "1959-96 Area Minutes",
-    "asset": "assets/archives/1959-96 Area Minutes.pdf"
+    "url": "service/archive/1959-96 Area Minutes.pdf"
   },
   {
+    "id": 2,
     "name": "1996-14 Area Minutes",
-    "asset": "assets/archives/Area74Minutes96-14.pdf"
+    "url": "service/archive/Area74Minutes96-14.pdf"
   },
   {
+    "id": 3,
     "name": "Area 74 Minutes Log",
-    "asset": "assets/archives/Area 74 Minutes log.pdf"
+    "url": "service/archive/Area 74 Minutes log.pdf"
   },
   {
+    "id": 4,
     "name": "Area 74 Archives Handbook",
-    "asset": "assets/archives/2017-11-25 Area 74 Archives Handbook.pdf"
+    "url": "service/archive/2017-11-25 Area 74 Archives Handbook.pdf"
   },
   {
+    "id": 5,
     "name": "Area 74 Archives Catalog",
-    "asset": "assets/archives/2017-11-25 Area 74 Archives Catalog.pdf"
+    "url": "service/archive/2017-11-25 Area 74 Archives Catalog.pdf"
   },
   {
+    "id": 6,
     "name": "Area 74 Archives Group History Form",
-    "asset": "assets/archives/2017-12 Area 74 Archives Group History Form.pdf"
+    "url": "service/archive/2017-12 Area 74 Archives Group History Form.pdf"
   },
   {
+    "id": 7,
     "name": "Area 74 Archives Interview Release Form",
-    "asset": "assets/archives/2017-12 Area 74 Archives Interview Release Form.pdf"
+    "url": "service/archive/2017-12 Area 74 Archives Interview Release Form.pdf"
   },
   {
+    "id": 8,
     "name": "Area 74 Archives Request Form",
-    "asset": "assets/archives/2017-12 Area 74 Archives Request Form.pdf"
+    "url": "service/archive/2017-12 Area 74 Archives Request Form.pdf"
   },
   {
+    "id": 9,
     "name": "What We Used to be Like Info",
-    "asset": "assets/archives/What We Used to be Like.pdf"
+    "url": "service/archive/What We Used to be Like.pdf"
   },
   {
+    "id": 10,
     "name": "What We Used to be Like Slide Show",
-    "asset": "assets/archives/What We Used To Be Like.pptx"
+    "url": "service/archive/What We Used To Be Like.pptx"
   }
 ]
