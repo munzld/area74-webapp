@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { CallbackComponent } from './callback/callback.component';
+import { CallbackComponent } from './core/callback/callback.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { ConferenceComponent } from './conference/conference.component';
 import { DirectoryComponent } from './directory/directory.component';

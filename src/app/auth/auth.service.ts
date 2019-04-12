@@ -1,42 +1,46 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
-
+import { of, Subscription, timer } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
-  private _idToken: string;
-  private _accessToken: string;
-  private _expiresAt: number;
-
+  // Create Auth0 web auth instance
   auth0 = new auth0.WebAuth({
-    clientID: environment.clientID,
+    clientID: environment.auth0.clientID,
     domain: 'area74.auth0.com',
     responseType: 'token id_token',
-    redirectUri: environment.serverUrl + '/callback/',
-    scope: 'openid'
+    redirectUri: environment.auth0.serverUrl + '/callback/',
+    scope: 'openid name email displayname'
   });
+  idToken: string;
+  accessToken: string;
+  expiresAt: number;
+  // Track authentication status
+  loggedIn: boolean;
+  loading: boolean;
+  // Track Firebase authentication status
+  loggedInFirebase: boolean;
+  // Subscribe to the Firebase token stream
+  firebaseSub: Subscription;
+  // Subscribe to Firebase renewal timer stream
+  refreshFirebaseSub: Subscription;
 
-  constructor(public router: Router) {
-    this._idToken = '';
-    this._accessToken = '';
-    this._expiresAt = 0;
+  constructor(public router: Router, private afAuth: AngularFireAuth, private http: HttpClient) {
+    this.idToken = '';
+    this.accessToken = '';
+    this.expiresAt = 0;
   }
 
-  get accessToken(): string {
-    return this._accessToken;
-  }
-
-  get idToken(): string {
-    return this._idToken;
-  }
-
-  public login(): void {
+  login(): void {
     this.auth0.authorize();
   }
 
-  public handleAuthentication(): void {
+  handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
@@ -48,15 +52,7 @@ export class AuthService {
     });
   }
 
-  private localLogin(authResult): void {
-    // Set the time that the access token will expire at
-    const expiresAt = authResult.expiresIn * 1000 + Date.now();
-    this._accessToken = authResult.accessToken;
-    this._idToken = authResult.idToken;
-    this._expiresAt = expiresAt;
-  }
-
-  public renewTokens(): void {
+  renewTokens(): void {
     this.auth0.checkSession({}, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
@@ -67,21 +63,54 @@ export class AuthService {
     });
   }
 
-  public logout(): void {
+  logout(): void {
     // Remove tokens and expiry time
-    this._accessToken = '';
-    this._idToken = '';
-    this._expiresAt = 0;
+    this.accessToken = '';
+    this.idToken = '';
+    this.expiresAt = 0;
 
     this.auth0.logout({
-      returnTo: environment.serverUrl,
-      clientID: environment.clientID
+      returnTo: environment.auth0.serverUrl,
+      clientID: environment.auth0.clientID
     });
   }
 
-  public isAuthenticated(): boolean {
+  isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    return this._accessToken && Date.now() < this._expiresAt;
+    return this.accessToken && Date.now() < this.expiresAt;
+  }
+
+  unscheduleFirebaseRenewal() {
+    if (this.refreshFirebaseSub) {
+      this.refreshFirebaseSub.unsubscribe();
+    }
+  }
+
+  private localLogin(authResult): void {
+    // Set the time that the access token will expire at
+    console.log(authResult);
+    const expiresAt = authResult.expiresIn * 1000 + Date.now();
+    this.accessToken = authResult.accessToken;
+    this.idToken = authResult.idToken;
+    this.expiresAt = expiresAt;
+    this.firebaseAuth();
+  }
+
+  private firebaseAuth() {
+    this.afAuth.auth
+      .signInWithCustomToken(this.accessToken)
+      .then(res => {
+        this.loggedInFirebase = true;
+        // Schedule token renewal
+        // this.scheduleFirebaseRenewal();
+        console.log('Successfully authenticated with Firebase!');
+      })
+      .catch(err => {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        console.error(`${errorCode} Could not log into Firebase: ${errorMessage}`);
+        this.loggedInFirebase = false;
+      });
   }
 }

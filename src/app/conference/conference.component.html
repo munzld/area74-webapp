@@ -5,16 +5,29 @@
   <div class="card">
     <div class="card-header" id="headingUpcomingConferences">
       <h3 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseUpcomingConferences" aria-expanded="false" aria-controls="collapseUpcomingConferences">
+        <button
+          class="btn btn-link"
+          data-toggle="collapse"
+          data-target="#collapseUpcomingConferences"
+          aria-expanded="false"
+          aria-controls="collapseUpcomingConferences"
+        >
           Upcoming Conferences
         </button>
       </h3>
     </div>
-    <div id="collapseUpcomingConferences" class="collapse show" aria-labelledby="headingUpcomingConferences" data-parent="#accordion">
+    <div
+      id="collapseUpcomingConferences"
+      class="collapse show"
+      aria-labelledby="headingUpcomingConferences"
+      data-parent="#accordion"
+    >
       <div class="card-body">
         <ul>
-          <li *ngFor="let upcomingConference of conferences | upcomingConferences">
-            <a class="blue-link" href="{{upcomingConference.flyer}}">{{upcomingConference.name}}</a>
+          <li *ngFor="let upcomingConference of (conferences | upcomingConferences)">
+            <a class="blue-link" href="{{ upcomingConference.flyer }}">{{
+              upcomingConference.name
+            }}</a>
           </li>
         </ul>
       </div>
@@ -23,16 +36,27 @@
   <div class="card">
     <div class="card-header" id="headingPastConferences">
       <h3 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePastConferences" aria-expanded="false" aria-controls="collapsePastConferences">
+        <button
+          class="btn btn-link"
+          data-toggle="collapse"
+          data-target="#collapsePastConferences"
+          aria-expanded="false"
+          aria-controls="collapsePastConferences"
+        >
           Past Conferences
         </button>
       </h3>
     </div>
-    <div id="collapsePastConferences" class="collapse" aria-labelledby="headingPastConferences" data-parent="#accordion">
+    <div
+      id="collapsePastConferences"
+      class="collapse"
+      aria-labelledby="headingPastConferences"
+      data-parent="#accordion"
+    >
       <div class="card-body">
         <ul>
-          <li *ngFor="let pastConference of conferences | pastConferences">
-            <a class="blue-link" href="{{pastConference.flyer}}">{{pastConference.name}}</a>
+          <li *ngFor="let pastConference of (conferences | pastConferences)">
+            <a class="blue-link" href="{{ pastConference.flyer }}">{{ pastConference.name }}</a>
           </li>
         </ul>
       </div>
