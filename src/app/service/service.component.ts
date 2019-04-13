@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { ArchiveService } from './archive/archive.service';
 import { AreaAssemblyService } from './area-assembly/area-assembly.service';
 import { AreaCommitteeService } from './area-committee/area-committee.service';
 import { PresentationService } from './presentation/presentation.service';
 import { AuthService } from '../auth/auth.service';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { Archive } from './archive/archive';
 
 @Component({
   selector: 'app-service',
@@ -25,7 +22,6 @@ export class ServiceComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private storage: AngularFireStorage,
     private presentationService: PresentationService,
     private archiveService: ArchiveService,
     private areaAssemblyService: AreaAssemblyService,

@@ -7,14 +7,6 @@ export const environment = {
   auth0: {
     clientID: 'UIbBQbxzHlu4QAi87QVqdnYG6CJyvHXr',
     serverUrl: 'http://localhost:4200'
-  },
-  firebase: {
-    apiKey: 'AIzaSyAQpBDRrM7oWqp3SxJ_RoQpsGkWmQKFchg',
-    authDomain: 'area-74.firebaseapp.com',
-    databaseURL: 'https://area-74.firebaseio.com',
-    projectId: 'area-74',
-    storageBucket: 'area-74.appspot.com',
-    messagingSenderId: '134362539190'
   }
 };
 

@@ -19,12 +19,9 @@ import { ProfessionalsModule } from './professionals/professionals.module';
 import { ServiceModule } from './service/service.module';
 import { StepsModule } from './steps/steps.module';
 import { TraditionsModule } from './traditions/traditions.module';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,9 +45,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     ServiceModule,
     StepsModule,
     TraditionsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFireStorageModule,
     AuthModule
   ],
   bootstrap: [AppComponent]
