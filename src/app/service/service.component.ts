@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ArchiveService } from './archive/archive.service';
+import { ArchivesService } from './archives/archives.service';
 import { AreaAssemblyService } from './area-assembly/area-assembly.service';
 import { AreaCommitteeService } from './area-committee/area-committee.service';
 import { PresentationService } from './presentation/presentation.service';
@@ -23,7 +23,7 @@ export class ServiceComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private presentationService: PresentationService,
-    private archiveService: ArchiveService,
+    private archivesService: ArchivesService,
     private areaAssemblyService: AreaAssemblyService,
     private areaCommitteeService: AreaCommitteeService
   ) {}
@@ -45,7 +45,7 @@ export class ServiceComponent implements OnInit {
   }
 
   getArchives(): void {
-    this.archiveService.getArchives().subscribe(archives => {
+    this.archivesService.getArchives().subscribe(archives => {
       this.archives = archives;
     });
   }

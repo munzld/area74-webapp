@@ -1,4 +1,4 @@
-export interface Archive {
+export interface Archives {
   id: number;
   name: string;
   url: string;
