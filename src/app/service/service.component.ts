@@ -17,6 +17,7 @@ export class ServiceComponent implements OnInit {
   areaAssemblyAgendas = [];
   areaAssemblyMinutes = [];
   areaAssemblyReports = [];
+  areaCommitteeAgendas = [];
   areaCommitteeMinutes = [];
   areaCommitteeReports = [];
 
@@ -34,6 +35,7 @@ export class ServiceComponent implements OnInit {
     this.getAreaAssemblyAgendas();
     this.getAreaAssemblyMinutes();
     this.getAreaAssemblyReports();
+    this.getAreaCommitteeAgendas();
     this.getAreaCommitteeMinutes();
     this.getAreaCommitteeReports();
   }
@@ -66,6 +68,12 @@ export class ServiceComponent implements OnInit {
     this.areaAssemblyService
       .getReports()
       .subscribe(areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports));
+  }
+
+  getAreaCommitteeAgendas(): void {
+    this.areaCommitteeService
+      .getAgendas()
+      .subscribe(areaCommitteeAgendas => (this.areaCommitteeAgendas = areaCommitteeAgendas));
   }
 
   getAreaCommitteeMinutes(): void {

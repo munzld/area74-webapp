@@ -6,8 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AreaCommitteeService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  public getAgendas(): Observable<any> {
+    return this.http.get('./assets/service/area-committee/agendas/area-committee-agendas.json');
+  }
 
   public getMinutes(): Observable<any> {
     return this.http.get('./assets/service/area-committee/minutes/area-committee-minutes.json');
