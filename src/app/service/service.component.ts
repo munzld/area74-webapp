@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 import { ArchivesService } from './archives/archives.service';
 import { AreaAssemblyService } from './area-assembly/area-assembly.service';
 import { AreaCommitteeService } from './area-committee/area-committee.service';
 import { PresentationService } from './presentation/presentation.service';
-import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-service',
@@ -22,7 +23,9 @@ export class ServiceComponent implements OnInit {
   areaCommitteeReports = [];
 
   constructor(
-    public authService: AuthService,
+    private db: AngularFirestore,
+    private authService: AuthService,
+    private router: Router,
     private presentationService: PresentationService,
     private archivesService: ArchivesService,
     private areaAssemblyService: AreaAssemblyService,
@@ -86,5 +89,16 @@ export class ServiceComponent implements OnInit {
     this.areaCommitteeService
       .getReports()
       .subscribe(areaCommitteeReports => (this.areaCommitteeReports = areaCommitteeReports));
+  }
+
+  logout() {
+    this.authService.doLogout().then(
+      res => {
+        this.router.navigate(['']);
+      },
+      error => {
+        console.log('Logout error', error);
+      }
+    );
   }
 }

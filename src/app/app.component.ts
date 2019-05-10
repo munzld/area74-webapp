@@ -1,19 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth/auth.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  constructor(public auth: AuthService) {
-    auth.handleAuthentication();
-  }
+export class AppComponent {
 
-  ngOnInit() {
-    if (this.auth.isAuthenticated()) {
-      this.auth.renewTokens();
-    }
-  }
 }

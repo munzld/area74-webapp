@@ -4,9 +4,14 @@
 
 export const environment = {
   production: false,
-  auth0: {
-    clientID: 'UIbBQbxzHlu4QAi87QVqdnYG6CJyvHXr',
-    serverUrl: 'http://localhost:4200'
+  firebase: {
+    apiKey: 'AIzaSyDVeKcZ8zTD2x-mK_nOExKrH0je9ejR4LE',
+    authDomain: 'area74dev.firebaseapp.com',
+    databaseURL: 'https://area74dev.firebaseio.com',
+    projectId: 'area74dev',
+    storageBucket: 'area74dev.appspot.com',
+    messagingSenderId: '960826711565',
+    appId: '1:960826711565:web:b6714ad6c07c79a1'
   }
 };
 

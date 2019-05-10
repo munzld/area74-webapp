@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from './auth/auth.guard';
 import { BridgingTheGapComponent } from './bridging-the-gap/bridging-the-gap.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { CallbackComponent } from './core/callback/callback.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { ConferenceComponent } from './conference/conference.component';
 import { DirectoryComponent } from './directory/directory.component';
@@ -12,12 +11,12 @@ import { GuidelinesComponent } from './guidelines/guidelines.component';
 import { HomeComponent } from './home/home.component';
 import { InformationComponent } from './information/information.component';
 import { LinksComponent } from './links/links.component';
+import { LoginComponent } from './login/login.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { ProfessionalsComponent } from './professionals/professionals.component';
 import { ServiceComponent } from './service/service.component';
 import { StepsComponent } from './steps/steps.component';
 import { TraditionsComponent } from './traditions/traditions.component';
-import { AuthGuard } from './auth/auth.guard';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,8 +34,8 @@ const ROUTES: Routes = [
   { path: 'links', component: LinksComponent },
   { path: 'guidelines', component: GuidelinesComponent },
   { path: 'directory', component: DirectoryComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
-  { path: 'callback', component: CallbackComponent },
   { path: '**', redirectTo: '/home' }
 ];
 

@@ -1,87 +1,43 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import * as auth0 from 'auth0-js';
-
-import { environment } from '../../environments/environment';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  private _idToken: string;
-  private _accessToken: string;
-  private _expiresAt: number;
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
-  auth0 = new auth0.WebAuth({
-    clientID: environment.auth0.clientID,
-    domain: 'area74.auth0.com',
-    responseType: 'token id_token',
-    redirectUri: environment.auth0.serverUrl + '/callback/',
-    scope: 'openid'
-  });
-
-  constructor(public router: Router) {
-    this._idToken = '';
-    this._accessToken = '';
-    this._expiresAt = 0;
+  getCurrentUser() {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          resolve(user);
+        } else {
+          reject('No user logged in');
+        }
+      });
+    });
   }
 
-  get accessToken(): string {
-    return this._accessToken;
+  doLogin(value) {
+    return new Promise<any>((resolve, reject) => {
+      this.afAuth.auth.signInWithEmailAndPassword(value.email, value.password).then(
+        res => {
+          resolve(res);
+        },
+        err => reject(err)
+      );
+    });
   }
 
-  get idToken(): string {
-    return this._idToken;
-  }
-
-  public login(): void {
-    this.auth0.authorize();
-  }
-
-  public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.localLogin(authResult);
-        this.router.navigate(['/service']);
-      } else if (err) {
-        this.router.navigate(['/service']);
-        console.log(err);
+  doLogout() {
+    return new Promise((resolve, reject) => {
+      if (this.afAuth.auth.currentUser) {
+        this.afAuth.auth.signOut();
+        resolve();
+      } else {
+        reject();
       }
     });
-  }
-
-  private localLogin(authResult): void {
-    // Set the time that the access token will expire at
-    const expiresAt = authResult.expiresIn * 1000 + Date.now();
-    this._accessToken = authResult.accessToken;
-    this._idToken = authResult.idToken;
-    this._expiresAt = expiresAt;
-  }
-
-  public renewTokens(): void {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.localLogin(authResult);
-      } else if (err) {
-        alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
-        this.logout();
-      }
-    });
-  }
-
-  public logout(): void {
-    // Remove tokens and expiry time
-    this._accessToken = '';
-    this._idToken = '';
-    this._expiresAt = 0;
-
-    this.auth0.logout({
-      returnTo: environment.auth0.serverUrl,
-      clientID: environment.auth0.clientID
-    });
-  }
-
-  public isAuthenticated(): boolean {
-    // Check whether the current time is past the
-    // access token's expiry time
-    return this._accessToken && Date.now() < this._expiresAt;
   }
 }
