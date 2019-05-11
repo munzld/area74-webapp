@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth, private router: Router) {}
+  constructor(private afAuth: AngularFireAuth) {}
 
   getCurrentUser() {
     return new Promise<any>((resolve, reject) => {

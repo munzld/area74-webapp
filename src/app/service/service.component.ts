@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { ArchivesService } from './archives/archives.service';
-import { AreaAssemblyService } from './area-assembly/area-assembly.service';
-import { AreaCommitteeService } from './area-committee/area-committee.service';
-import { PresentationService } from './presentation/presentation.service';
+import { FileService } from './file/file.service';
 
 @Component({
   selector: 'app-service',
@@ -23,13 +19,9 @@ export class ServiceComponent implements OnInit {
   areaCommitteeReports = [];
 
   constructor(
-    private db: AngularFirestore,
     private authService: AuthService,
-    private router: Router,
-    private presentationService: PresentationService,
-    private archivesService: ArchivesService,
-    private areaAssemblyService: AreaAssemblyService,
-    private areaCommitteeService: AreaCommitteeService
+    private fileService: FileService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -44,50 +36,50 @@ export class ServiceComponent implements OnInit {
   }
 
   getPresentations(): void {
-    this.presentationService
-      .getPresentations()
+    this.fileService
+      .getFiles('./assets/service/presentations.json')
       .subscribe(presentations => (this.presentations = presentations));
   }
 
   getArchives(): void {
-    this.archivesService.getArchives().subscribe(archives => {
+    this.fileService.getFiles('./assets/service/archives.json').subscribe(archives => {
       this.archives = archives;
     });
   }
 
   getAreaAssemblyAgendas(): void {
-    this.areaAssemblyService
-      .getAgendas()
+    this.fileService
+      .getFiles('./assets/service/area-assembly-agendas.json')
       .subscribe(areaAssemblyAgendas => (this.areaAssemblyAgendas = areaAssemblyAgendas));
   }
 
   getAreaAssemblyMinutes(): void {
-    this.areaAssemblyService
-      .getMinutes()
+    this.fileService
+      .getFiles('./assets/service/area-assembly-minutes.json')
       .subscribe(areaAssemblyMinutes => (this.areaAssemblyMinutes = areaAssemblyMinutes));
   }
 
   getAreaAssemblyReports(): void {
-    this.areaAssemblyService
-      .getReports()
+    this.fileService
+      .getFiles('./assets/service/area-assembly-reports.json')
       .subscribe(areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports));
   }
 
   getAreaCommitteeAgendas(): void {
-    this.areaCommitteeService
-      .getAgendas()
+    this.fileService
+      .getFiles('./assets/service/area-committee-agendas.json')
       .subscribe(areaCommitteeAgendas => (this.areaCommitteeAgendas = areaCommitteeAgendas));
   }
 
   getAreaCommitteeMinutes(): void {
-    this.areaCommitteeService
-      .getMinutes()
+    this.fileService
+      .getFiles('./assets/service/area-committee-minutes.json')
       .subscribe(areaCommitteeMinutes => (this.areaCommitteeMinutes = areaCommitteeMinutes));
   }
 
   getAreaCommitteeReports(): void {
-    this.areaCommitteeService
-      .getReports()
+    this.fileService
+      .getFiles('./assets/service/area-committee-reports.json')
       .subscribe(areaCommitteeReports => (this.areaCommitteeReports = areaCommitteeReports));
   }
 
