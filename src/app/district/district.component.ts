@@ -4,20 +4,18 @@ import { DistrictService } from '../district/district.service';
 @Component({
   selector: 'app-district',
   templateUrl: './district.component.html',
-  styleUrls: ['./district.component.css']
+  styleUrls: ['./district.component.scss']
 })
 export class DistrictComponent implements OnInit {
-
   districts = [];
 
-  constructor(private districtService: DistrictService) { }
+  constructor(private districtService: DistrictService) {}
 
   ngOnInit() {
     this.getDistricts();
   }
 
   getDistricts(): void {
-    this.districtService.getDistricts().subscribe(districts => this.districts = districts);
+    this.districtService.getDistricts().subscribe(districts => (this.districts = districts));
   }
-
 }

@@ -1,16 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MeetingsService } from '../meetings/meetings.service';
-import { DistrictService } from '../district/district.service';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
+import { DistrictService } from '../district/district.service';
+import { MeetingsService } from '../meetings/meetings.service';
 
 @Component({
   selector: 'app-meetings',
   templateUrl: './meetings.component.html',
-  styleUrls: ['./meetings.component.css']
+  styleUrls: ['./meetings.component.scss']
 })
 export class MeetingsComponent implements OnInit {
-
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
@@ -19,7 +18,7 @@ export class MeetingsComponent implements OnInit {
   cities = [];
   districts = [];
 
-  constructor(private meetingsService: MeetingsService, private districtService: DistrictService) { }
+  constructor(private meetingsService: MeetingsService, private districtService: DistrictService) {}
 
   ngOnInit() {
     this.getCities();
@@ -34,7 +33,6 @@ export class MeetingsComponent implements OnInit {
   }
 
   getDistricts(): void {
-    this.districtService.getDistricts().subscribe(districts => this.districts = districts);
+    this.districtService.getDistricts().subscribe(districts => (this.districts = districts));
   }
-
 }

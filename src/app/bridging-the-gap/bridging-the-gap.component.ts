@@ -1,15 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MeetingsService } from '../meetings/meetings.service';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
+import { MeetingsService } from '../meetings/meetings.service';
 
 @Component({
   selector: 'app-bridging-the-gap',
   templateUrl: './bridging-the-gap.component.html',
-  styleUrls: ['./bridging-the-gap.component.css']
+  styleUrls: ['./bridging-the-gap.component.scss']
 })
 export class BridgingTheGapComponent implements OnInit {
-
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
@@ -17,7 +16,7 @@ export class BridgingTheGapComponent implements OnInit {
 
   cities = [];
 
-  constructor(private meetingsService: MeetingsService) { }
+  constructor(private meetingsService: MeetingsService) {}
 
   ngOnInit() {
     this.getCities();
@@ -29,5 +28,4 @@ export class BridgingTheGapComponent implements OnInit {
       this.dtTrigger.next();
     });
   }
-
 }
