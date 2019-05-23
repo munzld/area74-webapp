@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { DirectoryService } from '../directory/directory.service';
 
@@ -9,10 +8,6 @@ import { DirectoryService } from '../directory/directory.service';
   styleUrls: ['./directory.component.scss']
 })
 export class DirectoryComponent implements OnInit {
-  @ViewChild(DataTableDirective)
-  dtElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject();
 
   directory = [];
 
@@ -25,7 +20,6 @@ export class DirectoryComponent implements OnInit {
   getDirectory(): void {
     this.directoryService.getDirectory().subscribe(directory => {
       this.directory = directory;
-      this.dtTrigger.next();
     });
   }
 }

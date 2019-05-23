@@ -25,6 +25,7 @@ import { ProfessionalsModule } from './professionals/professionals.module';
 import { ServiceModule } from './service/service.module';
 import { StepsModule } from './steps/steps.module';
 import { TraditionsModule } from './traditions/traditions.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -52,7 +53,8 @@ import { TraditionsModule } from './traditions/traditions.module';
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

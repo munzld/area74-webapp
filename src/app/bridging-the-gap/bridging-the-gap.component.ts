@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataTableDirective } from 'angular-datatables';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { MeetingsService } from '../meetings/meetings.service';
 
 @Component({
@@ -9,10 +7,6 @@ import { MeetingsService } from '../meetings/meetings.service';
   styleUrls: ['./bridging-the-gap.component.scss']
 })
 export class BridgingTheGapComponent implements OnInit {
-  @ViewChild(DataTableDirective)
-  dtElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject();
 
   cities = [];
 
@@ -25,7 +19,6 @@ export class BridgingTheGapComponent implements OnInit {
   getCities(): void {
     this.meetingsService.getCities().subscribe(cities => {
       this.cities = cities;
-      this.dtTrigger.next();
     });
   }
 }
