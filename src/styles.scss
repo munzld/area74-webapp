@@ -21,10 +21,6 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
   @include angular-material-theme($theme-dark);
 }
 
-body {
-  margin: 0;
-}
-
 .paper-handwriting {
   font-family: 'Merienda One', cursive;
   font-size: 1.25rem;
