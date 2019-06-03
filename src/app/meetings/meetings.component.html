@@ -79,28 +79,32 @@
     </div>
     <div id="collapseCities" class="collapse" aria-labelledby="headingCities" data-parent="#accordion">
       <div class="card-body">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">District</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let city of cities">
-              <td>
-                {{city.city}}
-              </td>
-              <td>
-                {{city.state}}
-              </td>
-              <td>
-                {{city.district}}
-              </td>
-            </tr>
-          </tbody>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <table mat-table [dataSource]="cities" matSort>
+          <!-- City Column -->
+          <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+            <td mat-cell *matCellDef="let row"> {{row.city}} </td>
+          </ng-container>
+
+          <!-- State Column -->
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+            <td mat-cell *matCellDef="let row"> {{row.state}} </td>
+          </ng-container>
+
+          <!-- District Column -->
+          <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> District </th>
+            <td mat-cell *matCellDef="let row"> {{row.district}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
       </div>
     </div>
   </div>
