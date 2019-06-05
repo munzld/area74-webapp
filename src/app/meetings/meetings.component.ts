@@ -1,26 +1,20 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DistrictService } from '../district/district.service';
-import { MeetingsService } from '../meetings/meetings.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-
-export interface CityData {
-  city: string;
-  state: string;
-  district: number;
-}
+import { DistrictService } from '../district/district.service';
+import { City } from '../meetings/city';
+import { MeetingsService } from '../meetings/meetings.service';
 
 @Component({
   selector: 'app-meetings',
   templateUrl: './meetings.component.html',
-  styleUrls: ['./meetings.component.scss']
+  styleUrls: ['./meetings.component.scss', '../shared/material.scss']
 })
 export class MeetingsComponent implements OnInit {
   displayedColumns: string[] = ['city', 'state', 'district'];
-  dataSource: MatTableDataSource<CityData>;
+  dataSource: MatTableDataSource<City>;
 
-  cities = [];
   districts = [];
 
   @ViewChild(MatSort) sort: MatSort;
@@ -43,8 +37,7 @@ export class MeetingsComponent implements OnInit {
 
   getCities(): void {
     this.meetingsService.getCities().subscribe(cities => {
-      this.cities = cities;
-      this.dataSource = new MatTableDataSource(this.cities);
+      this.dataSource = new MatTableDataSource(cities);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
