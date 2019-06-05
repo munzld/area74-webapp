@@ -9,12 +9,13 @@
 <div class="table-responsive">
   <table class="table table-hover table-striped">
     <tbody>
-        <tr *ngFor="let groups of districts">
-          <td *ngFor="let district of groups">
-            <p *ngIf="district.website !== ''"><a class="blue-link" href="{{district.website}}" target="_blank">District {{district.district}}</a></p>
-            <p *ngIf="district.website == ''">District {{district.district}}</p>
-          </td>
-        </tr>
+      <tr *ngFor="let groups of districts">
+        <td *ngFor="let district of groups">
+          <p *ngIf="district.website !== ''"><a href="{{district.website}}" target="_blank">District
+              {{district.district}}</a></p>
+          <p *ngIf="district.website == ''">District {{district.district}}</p>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

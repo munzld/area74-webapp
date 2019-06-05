@@ -19,7 +19,7 @@
             <div class="card-body">
               <ul>
                 <li *ngFor="let presentation of presentations">
-                  <a class="blue-link" href="{{ presentation.url }}" target="_blank">{{
+                  <a href="{{ presentation.url }}" target="_blank">{{
                     presentation.name
                   }}</a>
                 </li>
@@ -45,7 +45,7 @@
             <div class="card-body">
               <ul class="card-text">
                 <li *ngFor="let agenda of areaCommitteeAgendas">
-                  <a class="blue-link" href="{{ agenda.url }}" target="_blank">{{
+                  <a href="{{ agenda.url }}" target="_blank">{{
                             agenda.name
                           }}</a>
                 </li>
@@ -67,7 +67,7 @@
             <div class="card-body">
               <ul class="card-text">
                 <li *ngFor="let minutes of areaCommitteeMinutes">
-                  <a class="blue-link" href="{{ minutes.url }}" target="_blank">{{
+                  <a href="{{ minutes.url }}" target="_blank">{{
                     minutes.name
                   }}</a>
                 </li>
@@ -89,7 +89,7 @@
             <div class="card-body">
               <ul class="card-text">
                 <li *ngFor="let report of areaCommitteeReports">
-                  <a class="blue-link" href="{{ report.url }}" target="_blank">{{
+                  <a href="{{ report.url }}" target="_blank">{{
                     report.name
                   }}</a>
                 </li>
@@ -115,7 +115,7 @@
             <div class="card-body">
               <ul class="card-text">
                 <li *ngFor="let agenda of areaAssemblyAgendas">
-                  <a class="blue-link" href="{{ agenda.url }}" target="_blank">{{
+                  <a href="{{ agenda.url }}" target="_blank">{{
                     agenda.name
                   }}</a>
                 </li>
@@ -137,7 +137,7 @@
             <div class="card-body">
               <ul class="card-text">
                 <li *ngFor="let minutes of areaAssemblyMinutes">
-                  <a class="blue-link" href="{{ minutes.url }}" target="_blank">{{
+                  <a href="{{ minutes.url }}" target="_blank">{{
                     minutes.name
                   }}</a>
                 </li>
@@ -159,7 +159,7 @@
             <div class="card-body">
               <ul class="card-text">
                 <li *ngFor="let report of areaAssemblyReports">
-                  <a class="blue-link" href="{{ report.url }}" target="_blank">{{
+                  <a href="{{ report.url }}" target="_blank">{{
                     report.name
                   }}</a>
                 </li>
@@ -178,7 +178,7 @@
   This information has been collected by the archives committee. They have spent many hours
   collecting this information. Although they have spent a lot of time on this project we still need
   your help. Over the year minutes have gone missing. Please send any minutes that are missing to
-  the Archivist (<a class="blue-link" href="mailto:archivist@area74.org">archivist@area74.org</a>).
+  the Archivist (<a href="mailto:archivist@area74.org">archivist@area74.org</a>).
 </p>
 <div id="accordionArchive">
   <div class="card mx-auto mb-5" style="max-width: 20rem;">
@@ -194,7 +194,7 @@
       <div class="card-body">
         <ul class="card-text">
           <li *ngFor="let archive of archives">
-            <a class="blue-link" href="{{ archive.url }}" target="_blank">{{ archive.name }}</a>
+            <a href="{{ archive.url }}" target="_blank">{{ archive.name }}</a>
           </li>
         </ul>
       </div>
