@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DistrictService } from '../district/district.service';
-import { City } from '../shared/material/city';
-import { MeetingsService } from '../meetings/meetings.service';
+import { City } from '../city/city';
+import { CityService } from '../city/city.service';
 
 @Component({
   selector: 'app-meetings',
@@ -20,7 +20,7 @@ export class MeetingsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private meetingsService: MeetingsService, private districtService: DistrictService) {}
+  constructor(private cityService: CityService, private districtService: DistrictService) {}
 
   ngOnInit() {
     this.getCities();
@@ -36,7 +36,7 @@ export class MeetingsComponent implements OnInit {
   }
 
   getCities(): void {
-    this.meetingsService.getCities().subscribe(cities => {
+    this.cityService.getCities().subscribe(cities => {
       this.dataSource = new MatTableDataSource(cities);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

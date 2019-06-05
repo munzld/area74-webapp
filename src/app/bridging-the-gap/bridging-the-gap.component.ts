@@ -1,24 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { MeetingsService } from '../meetings/meetings.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CityService } from '../city/city.service';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { City } from '../city/city';
 
 @Component({
   selector: 'app-bridging-the-gap',
   templateUrl: './bridging-the-gap.component.html',
-  styleUrls: ['./bridging-the-gap.component.scss']
+  styleUrls: ['./bridging-the-gap.component.scss', '../shared/material/material.scss']
 })
 export class BridgingTheGapComponent implements OnInit {
+  displayedColumns: string[] = ['city', 'state', 'district'];
+  dataSource: MatTableDataSource<City>;
 
-  cities = [];
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private meetingsService: MeetingsService) {}
+  constructor(private cityService: CityService) {}
 
   ngOnInit() {
     this.getCities();
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   getCities(): void {
-    this.meetingsService.getCities().subscribe(cities => {
-      this.cities = cities;
+    this.cityService.getCities().subscribe(cities => {
+      this.dataSource = new MatTableDataSource(cities);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 }
