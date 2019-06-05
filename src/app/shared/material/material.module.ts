@@ -1,3 +1,4 @@
+import { CdkTableModule } from '@angular/cdk/table';
 import { NgModule } from '@angular/core';
 import {
   MatAutocompleteModule,
@@ -33,8 +34,6 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
-
-import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   imports: [

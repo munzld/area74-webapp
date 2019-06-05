@@ -6,7 +6,7 @@ import { DirectoryService } from '../directory/directory.service';
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
-  styleUrls: ['./directory.component.scss', '../shared/material.scss']
+  styleUrls: ['./directory.component.scss', '../shared/material/material.scss']
 })
 export class DirectoryComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'email'];

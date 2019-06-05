@@ -3,13 +3,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DistrictService } from '../district/district.service';
-import { City } from '../meetings/city';
+import { City } from '../shared/material/city';
 import { MeetingsService } from '../meetings/meetings.service';
 
 @Component({
   selector: 'app-meetings',
   templateUrl: './meetings.component.html',
-  styleUrls: ['./meetings.component.scss', '../shared/material.scss']
+  styleUrls: ['./meetings.component.scss', '../shared/material/material.scss']
 })
 export class MeetingsComponent implements OnInit {
   displayedColumns: string[] = ['city', 'state', 'district'];
