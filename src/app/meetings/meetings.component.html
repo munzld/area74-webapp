@@ -82,7 +82,7 @@
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
-        <table mat-table [dataSource]="cities" matSort>
+        <table mat-table [dataSource]="dataSource" matSort>
           <!-- City Column -->
           <ng-container matColumnDef="city">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
