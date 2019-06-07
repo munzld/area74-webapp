@@ -7,6 +7,7 @@ import { DistrictService } from '../district/district.service';
   styleUrls: ['./district.component.scss']
 })
 export class DistrictComponent implements OnInit {
+
   districts = [];
 
   constructor(private districtService: DistrictService) {}

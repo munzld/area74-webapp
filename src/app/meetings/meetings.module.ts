@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 import { MeetingsComponent } from './meetings.component';
 import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
   declarations: [MeetingsComponent],
-  imports: [SharedModule, MaterialModule]
+  imports: [SharedModule, DataTablesModule]
 })
 export class MeetingsModule {}

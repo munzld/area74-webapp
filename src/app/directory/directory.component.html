@@ -1,29 +1,25 @@
 <h2>
   Area 74 Directory
 </h2>
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
-<table mat-table [dataSource]="dataSource" matSort>
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
-    <td mat-cell *matCellDef="let row"> {{row.position}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-  </ng-container>
-
-  <!-- Email Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-    <td mat-cell *matCellDef="let row"> <a href="mailto:{{row.email}}">{{row.email}}</a> </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let position of directory">
+      <td>
+        {{position.position}}
+      </td>
+      <td>
+        {{position.name}}
+      </td>
+      <td>
+        <a class="blue-link" href="mailto:{{position.email}}">{{position.email}}</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

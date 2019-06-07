@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 import { BridgingTheGapComponent } from './bridging-the-gap.component';
 import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
   declarations: [BridgingTheGapComponent],
-  imports: [SharedModule, MaterialModule]
+  imports: [SharedModule, DataTablesModule]
 })
 export class BridgingTheGapModule {}

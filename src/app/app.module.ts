@@ -4,7 +4,6 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,8 +52,7 @@ import { TraditionsModule } from './traditions/traditions.module';
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    AngularFireAuthModule,
-    BrowserAnimationsModule
+    AngularFireAuthModule
   ],
   bootstrap: [AppComponent]
 })

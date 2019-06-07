@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./professionals.component.scss']
 })
 export class ProfessionalsComponent implements OnInit {
-  constructor() {}
+
+  constructor() { }
 
   ngOnInit() {}
 }

@@ -7,6 +7,7 @@ import { CalendarService } from '../calendar/calendar.service';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
+
   events = [];
 
   constructor(private calendarService: CalendarService) {}

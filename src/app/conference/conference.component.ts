@@ -7,6 +7,7 @@ import { ConferenceService } from '../conference/conference.service';
   styleUrls: ['./conference.component.scss']
 })
 export class ConferenceComponent implements OnInit {
+
   conferences = [];
 
   constructor(private conferenceService: ConferenceService) {}

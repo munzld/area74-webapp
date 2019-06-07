@@ -1,24 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { DistrictService } from '../district/district.service';
-import { City } from '../city/city';
+import { DataTableDirective } from 'angular-datatables';
+import { Subject } from 'rxjs';
 import { CityService } from '../city/city.service';
 
 @Component({
   selector: 'app-meetings',
   templateUrl: './meetings.component.html',
-  styleUrls: ['./meetings.component.scss', '../shared/material/material.scss']
+  styleUrls: ['./meetings.component.scss']
 })
 export class MeetingsComponent implements OnInit {
-  displayedColumns: string[] = ['city', 'state', 'district'];
-  dataSource: MatTableDataSource<City>;
 
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
+
+  cities = [];
   districts = [];
-
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private cityService: CityService, private districtService: DistrictService) {}
 
@@ -27,19 +26,10 @@ export class MeetingsComponent implements OnInit {
     this.getDistricts();
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
   getCities(): void {
     this.cityService.getCities().subscribe(cities => {
-      this.dataSource = new MatTableDataSource(cities);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.cities = cities;
+      this.dtTrigger.next();
     });
   }
 
