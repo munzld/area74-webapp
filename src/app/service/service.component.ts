@@ -10,6 +10,7 @@ import { FileService } from './file/file.service';
 })
 export class ServiceComponent implements OnInit {
   presentations = [];
+  newsletters = [];
   archives = [];
   areaAssemblyAgendas = [];
   areaAssemblyMinutes = [];
@@ -26,6 +27,7 @@ export class ServiceComponent implements OnInit {
 
   ngOnInit() {
     this.getPresentations();
+    this.getNewsletters();
     this.getArchives();
     this.getAreaAssemblyAgendas();
     this.getAreaAssemblyMinutes();
@@ -39,6 +41,12 @@ export class ServiceComponent implements OnInit {
     this.fileService
       .getFiles('./assets/service/presentations.json')
       .subscribe(presentations => (this.presentations = presentations));
+  }
+
+  getNewsletters(): void {
+    this.fileService.getFiles('./assets/service/newsletters.json').subscribe(newsletters => {
+      this.newsletters = newsletters;
+    });
   }
 
   getArchives(): void {
