@@ -2,7 +2,7 @@
   [
     {
       "district": 1,
-      "meetings": "assets/meetings/district01.pdf",
+      "meetings": "http://www.greenbayaa.org/meetings.html",
       "website": "http://www.greenbayaa.org/"
     },
     {
@@ -12,17 +12,17 @@
     },
     {
       "district": 3,
-      "meetings": "assets/meetings/district03.pdf",
+      "meetings": "https://wiaadistrict3.org/meeting-list/",
       "website": "http://wiaadistrict3.org/"
     },
     {
       "district": 4,
-      "meetings": "assets/meetings/district04.pdf",
+      "meetings": "http://www.aawidistrict04.org/meeting-list/",
       "website": "http://www.aawidistrict04.org/"
     },
     {
       "district": 5,
-      "meetings": "assets/meetings/district05.pdf",
+      "meetings": "http://www.district05.org/meetings/",
       "website": "http://www.district05.org/"
     },
     { "district": 6, "meetings": "assets/meetings/district06.pdf", "website": "" }
@@ -31,17 +31,17 @@
     { "district": 7, "meetings": "assets/meetings/district07.pdf", "website": "" },
     {
       "district": 8,
-      "meetings": "assets/meetings/district08.pdf",
+      "meetings": "https://www.aawausauwi.org/meetings/",
       "website": "https://www.aawausauwi.org/"
     },
     {
       "district": 9,
-      "meetings": "assets/meetings/district09.pdf",
+      "meetings": "http://www.district09aa.org/meeting.html",
       "website": "http://www.district09aa.org/"
     },
     {
       "district": 10,
-      "meetings": "assets/meetings/district10.pdf",
+      "meetings": "http://northwoodsaa.org/meeting-list/",
       "website": "http://www.northwoodsaa.org/"
     },
     { "district": 11, "meetings": "assets/meetings/district11.pdf", "website": "" },
@@ -51,19 +51,19 @@
     { "district": 13, "meetings": "assets/meetings/district13.pdf", "website": "" },
     {
       "district": 14,
-      "meetings": "assets/meetings/district14.pdf",
+      "meetings": "http://www.stcroixvalleyaa.org/docs/d14meetings.pdf",
       "website": "http://www.stcroixvalleyaa.org/"
     },
     { "district": 15, "meetings": "assets/meetings/district15.pdf", "website": "" },
     { "district": 16, "meetings": "assets/meetings/district16.pdf", "website": "" },
     {
       "district": 17,
-      "meetings": "assets/meetings/district17.pdf",
+      "meetings": "http://www.district17a74.org/Dmeetings.htm",
       "website": "http://www.district17a74.org/"
     },
     {
       "district": 18,
-      "meetings": "assets/meetings/district18.pdf",
+      "meetings": "http://aa-marquettecounty.org/meetings/",
       "website": "http://www.aa-marquettecounty.org/"
     }
   ],
@@ -71,7 +71,7 @@
     { "district": 19, "meetings": "assets/meetings/district19.pdf", "website": "" },
     {
       "district": 20,
-      "meetings": "assets/meetings/district20.pdf",
+      "meetings": "http://district20area74aa.org/Meetings.html",
       "website": "http://www.district20area74aa.org/"
     },
     { "district": 21, "meetings": "assets/meetings/district21.pdf", "website": "" },
