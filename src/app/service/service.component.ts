@@ -39,55 +39,55 @@ export class ServiceComponent implements OnInit {
 
   getPresentations(): void {
     this.fileService
-      .getFiles('./assets/service/presentations.json')
+      .getFiles('service/presentation')
       .subscribe(presentations => (this.presentations = presentations));
   }
 
   getNewsletters(): void {
-    this.fileService.getFiles('./assets/service/newsletters.json').subscribe(newsletters => {
+    this.fileService.getFiles('service/newsletter').subscribe(newsletters => {
       this.newsletters = newsletters;
     });
   }
 
   getArchives(): void {
-    this.fileService.getFiles('./assets/service/archives.json').subscribe(archives => {
+    this.fileService.getFiles('service/archives').subscribe(archives => {
       this.archives = archives;
     });
   }
 
   getAreaAssemblyAgendas(): void {
     this.fileService
-      .getFiles('./assets/service/area-assembly-agendas.json')
+      .getFiles('service/area-assembly/agendas')
       .subscribe(areaAssemblyAgendas => (this.areaAssemblyAgendas = areaAssemblyAgendas));
   }
 
   getAreaAssemblyMinutes(): void {
     this.fileService
-      .getFiles('./assets/service/area-assembly-minutes.json')
+      .getFiles('service/area-assembly/minutes')
       .subscribe(areaAssemblyMinutes => (this.areaAssemblyMinutes = areaAssemblyMinutes));
   }
 
   getAreaAssemblyReports(): void {
     this.fileService
-      .getFiles('./assets/service/area-assembly-reports.json')
+      .getFiles('service/area-assembly/reports')
       .subscribe(areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports));
   }
 
   getAreaCommitteeAgendas(): void {
     this.fileService
-      .getFiles('./assets/service/area-committee-agendas.json')
+      .getFiles('service/area-committee/agendas')
       .subscribe(areaCommitteeAgendas => (this.areaCommitteeAgendas = areaCommitteeAgendas));
   }
 
   getAreaCommitteeMinutes(): void {
     this.fileService
-      .getFiles('./assets/service/area-committee-minutes.json')
+      .getFiles('service/area-committee/minutes')
       .subscribe(areaCommitteeMinutes => (this.areaCommitteeMinutes = areaCommitteeMinutes));
   }
 
   getAreaCommitteeReports(): void {
     this.fileService
-      .getFiles('./assets/service/area-committee-reports.json')
+      .getFiles('service/area-committee/reports')
       .subscribe(areaCommitteeReports => (this.areaCommitteeReports = areaCommitteeReports));
   }
 
