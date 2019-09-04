@@ -4,28 +4,42 @@ import { Observable } from 'rxjs';
 import { File } from './file';
 import { map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileService {
-  constructor(private http: HttpClient, private storage: AngularFireStorage) {}
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {}
 
-  public getFiles(location: string): Observable<File[]> {
-    const ref = this.storage.ref(location);
-    console.log('Ref location: ' + location);
-    console.log('Ref storage: ' + JSON.stringify(ref));
-    return new Observable<File[]>();
-    // return this.http.get<File[]>(ref).pipe(
-    //   map((files: File[]) => {
-    //     files.forEach((file: File) => {
-    //       this.getDownloadUrl(file.url).subscribe(url => {
-    //         file.url = url;
-    //       });
-    //     });
-    //     return files;
-    //   })
-    // );
+  public getFiles(
+    basePath: string
+  ): Observable<{ key: string; name: string; url: string; file: File }[]> {
+    return (
+      this.db
+        .list<File>(basePath)
+        .snapshotChanges()
+        .pipe(
+          map(changes =>
+            changes.map(c => ({
+              key: c.payload.key,
+              ...c.payload.val()
+            }))
+          )
+        )
+        // TODO: Could get rid of this by just putting the downloadUrl
+        // into the realtime database.
+        .pipe(
+          map((files: File[]) => {
+            files.forEach((file: File) => {
+              this.getDownloadUrl(file.url).subscribe(url => {
+                file.url = url;
+              });
+            });
+            return files;
+          })
+        )
+    );
   }
 
   private getDownloadUrl(url: string): Observable<string> {

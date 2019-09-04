@@ -1,5 +1,6 @@
 export interface File {
-  id: number;
+  key: string;
   name: string;
   url: string;
+  file: File;
 }

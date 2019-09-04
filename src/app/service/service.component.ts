@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { FileService } from './file/file.service';
 
@@ -38,57 +39,57 @@ export class ServiceComponent implements OnInit {
   }
 
   getPresentations(): void {
-    this.fileService
-      .getFiles('service/presentation')
-      .subscribe(presentations => (this.presentations = presentations));
+    this.fileService.getFiles('/presentations').subscribe(presentations => {
+      this.presentations = presentations;
+    });
   }
 
   getNewsletters(): void {
-    this.fileService.getFiles('service/newsletter').subscribe(newsletters => {
+    this.fileService.getFiles('/newsletters').subscribe(newsletters => {
       this.newsletters = newsletters;
     });
   }
 
   getArchives(): void {
-    this.fileService.getFiles('service/archives').subscribe(archives => {
+    this.fileService.getFiles('/archives').subscribe(archives => {
       this.archives = archives;
     });
   }
 
   getAreaAssemblyAgendas(): void {
-    this.fileService
-      .getFiles('service/area-assembly/agendas')
-      .subscribe(areaAssemblyAgendas => (this.areaAssemblyAgendas = areaAssemblyAgendas));
+    this.fileService.getFiles('/area-assembly-agendas').subscribe(areaAssemblyAgendas => {
+      this.areaAssemblyAgendas = areaAssemblyAgendas;
+    });
   }
 
   getAreaAssemblyMinutes(): void {
-    this.fileService
-      .getFiles('service/area-assembly/minutes')
-      .subscribe(areaAssemblyMinutes => (this.areaAssemblyMinutes = areaAssemblyMinutes));
+    this.fileService.getFiles('/area-assembly-minutes').subscribe(areaAssemblyMinutes => {
+      this.areaAssemblyMinutes = areaAssemblyMinutes;
+    });
   }
 
   getAreaAssemblyReports(): void {
-    this.fileService
-      .getFiles('service/area-assembly/reports')
-      .subscribe(areaAssemblyReports => (this.areaAssemblyReports = areaAssemblyReports));
+    this.fileService.getFiles('/area-assembly-reports').subscribe(areaAssemblyReports => {
+      this.areaAssemblyReports = areaAssemblyReports;
+    });
   }
 
   getAreaCommitteeAgendas(): void {
-    this.fileService
-      .getFiles('service/area-committee/agendas')
-      .subscribe(areaCommitteeAgendas => (this.areaCommitteeAgendas = areaCommitteeAgendas));
+    this.fileService.getFiles('/area-committee-agendas').subscribe(areaCommitteeAgendas => {
+      this.areaCommitteeAgendas = areaCommitteeAgendas;
+    });
   }
 
   getAreaCommitteeMinutes(): void {
-    this.fileService
-      .getFiles('service/area-committee/minutes')
-      .subscribe(areaCommitteeMinutes => (this.areaCommitteeMinutes = areaCommitteeMinutes));
+    this.fileService.getFiles('/area-committee-minutes').subscribe(areaCommitteeMinutes => {
+      this.areaCommitteeMinutes = areaCommitteeMinutes;
+    });
   }
 
   getAreaCommitteeReports(): void {
-    this.fileService
-      .getFiles('service/area-committee/reports')
-      .subscribe(areaCommitteeReports => (this.areaCommitteeReports = areaCommitteeReports));
+    this.fileService.getFiles('/area-committee-reports').subscribe(areaCommitteeReports => {
+      this.areaCommitteeReports = areaCommitteeReports;
+    });
   }
 
   logout() {
