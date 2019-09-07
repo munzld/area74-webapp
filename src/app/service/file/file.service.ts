@@ -15,31 +15,17 @@ export class FileService {
   public getFiles(
     basePath: string
   ): Observable<{ key: string; name: string; url: string; file: File }[]> {
-    return (
-      this.db
-        .list<File>(basePath)
-        .snapshotChanges()
-        .pipe(
-          map(changes =>
-            changes.map(c => ({
-              key: c.payload.key,
-              ...c.payload.val()
-            }))
-          )
+    return this.db
+      .list<File>(basePath)
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c => ({
+            key: c.payload.key,
+            ...c.payload.val()
+          }))
         )
-        // TODO: Could get rid of this by just putting the downloadUrl
-        // into the realtime database.
-        .pipe(
-          map((files: File[]) => {
-            files.forEach((file: File) => {
-              this.getDownloadUrl(file.url).subscribe(url => {
-                file.url = url;
-              });
-            });
-            return files;
-          })
-        )
-    );
+      );
   }
 
   private getDownloadUrl(url: string): Observable<string> {
