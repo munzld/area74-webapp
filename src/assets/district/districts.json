@@ -71,7 +71,7 @@
     { "district": 19, "meetings": "assets/meetings/district19.pdf", "website": "" },
     {
       "district": 20,
-      "meetings": "http://district20area74aa.org/Meetings.html",
+      "meetings": "http://district20area74aa.org/Meetings.php",
       "website": "http://www.district20area74aa.org/"
     },
     { "district": 21, "meetings": "assets/meetings/district21.pdf", "website": "" },
