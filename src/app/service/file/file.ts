@@ -1,6 +1,10 @@
-export interface File {
+export class File {
   key: string;
   name: string;
   url: string;
   file: File;
+
+  constructor(file: File) {
+    this.file = file;
+  }
 }

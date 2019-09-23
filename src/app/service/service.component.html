@@ -39,11 +39,15 @@
           <div id="collapseNewsletter" class="collapse" aria-labelledby="headingNewsletter" data-parent="#accordion1">
             <div class="card-body">
               <ul>
-                <li *ngFor="let newsletter of newsletters">
+                <li *ngFor="let newsletter of newsletters" class="clearfix">
                   <a href="{{ newsletter.url }}" target="_blank">{{
                             newsletter.name
                           }}</a>
+                  <button (click)='deleteNewsletter(newsletter)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
+                <label for="file">Upload Newsletter:</label>
+                <input type="file" (change)="uploadNewsletter($event)" />
               </ul>
             </div>
           </div>
@@ -157,11 +161,15 @@
             data-parent="#accordion3">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let minutes of areaAssemblyMinutes">
+                <li *ngFor="let minutes of areaAssemblyMinutes" class="clearfix">
                   <a href="{{ minutes.url }}" target="_blank">{{
                     minutes.name
                   }}</a>
+                  <button (click)='deleteAreaAssemblyMinutes(minutes)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
+                <label for="file">Upload Area Assembly Minutes:</label>
+                <input type="file" (change)="uploadAreaAssemblyMinutes($event)" />
               </ul>
             </div>
           </div>
