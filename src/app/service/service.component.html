@@ -18,12 +18,18 @@
             data-parent="#accordion1">
             <div class="card-body">
               <ul>
-                <li *ngFor="let presentation of presentations">
+                <li *ngFor="let presentation of presentations" class="clearfix">
                   <a href="{{ presentation.url }}" target="_blank">{{
                     presentation.name
                   }}</a>
+                  <button *ngIf="isAdmin" (click)='deletePresentation(presentation)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
               </ul>
+              <div *ngIf="isAdmin">
+                <label for="file">Upload Presentation:</label>
+                <input type="file" (change)="uploadPresentation($event)" />
+              </div>
             </div>
           </div>
         </div>
@@ -43,11 +49,13 @@
                   <a href="{{ newsletter.url }}" target="_blank">{{
                             newsletter.name
                           }}</a>
-                  <button (click)='deleteNewsletter(newsletter)'
+                  <button *ngIf="isAdmin" (click)='deleteNewsletter(newsletter)'
                     class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
-                <label for="file">Upload Newsletter:</label>
-                <input type="file" (change)="uploadNewsletter($event)" />
+                <div *ngIf="isAdmin">
+                  <label for="file">Upload Newsletter:</label>
+                  <input type="file" (change)="uploadNewsletter($event)" />
+                </div>
               </ul>
             </div>
           </div>
@@ -69,12 +77,18 @@
             data-parent="#accordion2">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let agenda of areaCommitteeAgendas">
+                <li *ngFor="let agenda of areaCommitteeAgendas" class="clearfix">
                   <a href="{{ agenda.url }}" target="_blank">{{
                             agenda.name
                           }}</a>
+                  <button *ngIf="isAdmin" (click)='deleteAreaCommitteeAgenda(agenda)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
               </ul>
+              <div *ngIf="isAdmin">
+                <label for="file">Upload Area Committee Agenda:</label>
+                <input type="file" (change)="uploadAreaCommitteeAgenda($event)" />
+              </div>
             </div>
           </div>
         </div>
@@ -91,12 +105,18 @@
             data-parent="#accordion2">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let minutes of areaCommitteeMinutes">
+                <li *ngFor="let minutes of areaCommitteeMinutes" class="clearfix">
                   <a href="{{ minutes.url }}" target="_blank">{{
                     minutes.name
                   }}</a>
+                  <button *ngIf="isAdmin" (click)='deleteAreaCommitteeMinutes(minutes)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
               </ul>
+              <div *ngIf="isAdmin">
+                <label for="file">Upload Area Committee Minutes:</label>
+                <input type="file" (change)="uploadAreaCommitteeMinutes($event)" />
+              </div>
             </div>
           </div>
         </div>
@@ -113,12 +133,18 @@
             data-parent="#accordion2">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let report of areaCommitteeReports">
+                <li *ngFor="let report of areaCommitteeReports" class="clearfix">
                   <a href="{{ report.url }}" target="_blank">{{
                     report.name
                   }}</a>
+                  <button *ngIf="isAdmin" (click)='deleteAreaCommitteeReport(report)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
               </ul>
+              <div *ngIf="isAdmin">
+                <label for="file">Upload Area Committee Report:</label>
+                <input type="file" (change)="uploadAreaCommitteeReport($event)" />
+              </div>
             </div>
           </div>
         </div>
@@ -139,12 +165,18 @@
             data-parent="#accordion3">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let agenda of areaAssemblyAgendas">
+                <li *ngFor="let agenda of areaAssemblyAgendas" class="clearfix">
                   <a href="{{ agenda.url }}" target="_blank">{{
                     agenda.name
                   }}</a>
+                  <button *ngIf="isAdmin" (click)='deleteAreaAssemblyAgenda(agenda)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
               </ul>
+              <div *ngIf="isAdmin">
+                <label for="file">Upload Area Assembly Agenda:</label>
+                <input type="file" (change)="uploadAreaAssemblyAgenda($event)" />
+              </div>
             </div>
           </div>
         </div>
@@ -189,12 +221,18 @@
             data-parent="#accordion3">
             <div class="card-body">
               <ul class="card-text">
-                <li *ngFor="let report of areaAssemblyReports">
+                <li *ngFor="let report of areaAssemblyReports" class="clearfix">
                   <a href="{{ report.url }}" target="_blank">{{
                     report.name
                   }}</a>
+                  <button *ngIf="isAdmin" (click)='deleteAreaAssemblyReport(report)'
+                    class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
               </ul>
+              <div *ngIf="isAdmin">
+                <label for="file">Upload Area Assembly Report:</label>
+                <input type="file" (change)="uploadAreaAssemblyReport($event)" />
+              </div>
             </div>
           </div>
         </div>
@@ -224,10 +262,16 @@
     <div id="collapseArchive" class="collapse" aria-labelledby="headingArchive" data-parent="#accordion4">
       <div class="card-body">
         <ul class="card-text">
-          <li *ngFor="let archive of archives">
+          <li *ngFor="let archive of archives" class="clearfix">
             <a href="{{ archive.url }}" target="_blank">{{ archive.name }}</a>
+            <button *ngIf="isAdmin" (click)='deleteArchive(archive)'
+              class="btn btn-danger btn-xs float-right mb-3">Delete</button>
           </li>
         </ul>
+        <div *ngIf="isAdmin">
+          <label for="file">Upload Archive:</label>
+          <input type="file" (change)="uploadArchive($event)" />
+        </div>
       </div>
     </div>
   </div>

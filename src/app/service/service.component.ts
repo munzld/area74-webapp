@@ -256,7 +256,7 @@ export class ServiceComponent implements OnInit {
     );
   }
 
-  deleteAreaCommitteeReports(fileUpload: FileUpload) {
+  deleteAreaCommitteeReport(fileUpload: FileUpload) {
     this.fileService.deleteFile(
       this.servicePath + this.areaCommitteePath + this.reportsPath,
       this.areaCommitteeReportsPath,
