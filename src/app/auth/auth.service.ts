@@ -23,7 +23,6 @@ export class AuthService {
       .auth()
       .currentUser.getIdTokenResult(true)
       .then(idTokenResult => {
-        console.log(JSON.stringify('idTokenResult: ' + idTokenResult));
         if (idTokenResult.claims.admin) {
           return true;
         } else {
