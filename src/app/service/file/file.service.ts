@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { File } from './file';
+import { FileUpload } from './fileupload';
 import { map, finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -11,21 +11,23 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class FileService {
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {}
 
-  pushFileToStorage(storagePath: string, dbPath: string, file: File): Observable<number> {
-    const filePath = storagePath + '/' + file.name;
-    console.log('pushFileToStorage: ' + filePath);
+  pushFileToStorage(
+    storagePath: string,
+    dbPath: string,
+    fileUpload: FileUpload
+  ): Observable<number> {
+    const filePath = `${storagePath}/${fileUpload.file.name}`;
     const storageRef = this.storage.ref(filePath);
-    const uploadTask = this.storage.upload(filePath, file.file);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
     uploadTask
       .snapshotChanges()
       .pipe(
         finalize(() => {
           storageRef.getDownloadURL().subscribe(downloadURL => {
-            console.log('File available at', downloadURL);
-            file.url = downloadURL;
-            file.name = file.file.name;
-            this.saveFileDatabase(dbPath, file);
+            fileUpload.url = downloadURL;
+            fileUpload.name = fileUpload.file.name;
+            this.saveFileDatabase(dbPath, fileUpload);
           });
         })
       )
@@ -34,17 +36,17 @@ export class FileService {
     return uploadTask.percentageChanges();
   }
 
-  deleteFile(storagePath: string, dbPath: string, file: File) {
-    this.deleteFileDatabase(dbPath, file.key)
+  deleteFile(storagePath: string, dbPath: string, fileUpload: FileUpload) {
+    this.deleteFileDatabase(dbPath, fileUpload.key)
       .then(() => {
-        this.deleteFileStorage(storagePath + '/', file.name);
+        this.deleteFileStorage(storagePath + '/', fileUpload.name);
       })
       .catch(error => console.log(error));
   }
 
   getFiles(basePath: string): Observable<{ key: string; name: string; url: string; file: File }[]> {
     return this.db
-      .list<File>(basePath)
+      .list<FileUpload>(basePath)
       .snapshotChanges()
       .pipe(
         map(changes =>
@@ -56,18 +58,15 @@ export class FileService {
       );
   }
 
-  private saveFileDatabase(dbPath: string, file: File) {
-    console.log('saveFileDatabase: ' + dbPath + file.name);
-    this.db.list(dbPath).push(file);
+  private saveFileDatabase(dbPath: string, fileUpload: FileUpload) {
+    this.db.list(dbPath).push(fileUpload);
   }
 
   private deleteFileDatabase(dbPath: string, key: string) {
-    console.log('deleteFileDatabase: ' + dbPath + key);
     return this.db.list(dbPath).remove(key);
   }
 
   private deleteFileStorage(storagePath: string, name: string) {
-    console.log('deleteFileStorage' + storagePath + name);
     const storageRef = this.storage.ref(storagePath);
     storageRef.child(name).delete();
   }

@@ -18,6 +18,24 @@ export class AuthService {
     });
   }
 
+  get isAdmin(): Promise<boolean> {
+    return firebase
+      .auth()
+      .currentUser.getIdTokenResult(true)
+      .then(idTokenResult => {
+        console.log(JSON.stringify('idTokenResult: ' + idTokenResult));
+        if (idTokenResult.claims.admin) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        return false;
+      });
+  }
+
   doLogin(value) {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.auth.signInWithEmailAndPassword(value.email, value.password).then(

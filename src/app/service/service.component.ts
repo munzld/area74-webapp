@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { File } from './file/file';
+import { FileUpload } from './file/fileupload';
 import { AuthService } from '../auth/auth.service';
 import { FileService } from './file/file.service';
 
@@ -23,6 +23,9 @@ export class ServiceComponent implements OnInit {
   areaCommitteeMinutes = [];
   areaCommitteeReports = [];
 
+  isAdmin = false;
+
+  private servicePath = '/service';
   private presentationsPath = '/presentations';
   private newslettersPath = '/newsletters';
   private archivesPath = '/archives';
@@ -45,6 +48,9 @@ export class ServiceComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.authService.isAdmin.then(result => {
+      this.isAdmin = result;
+    });
     this.getPresentations();
     this.getNewsletters();
     this.getArchives();
@@ -68,14 +74,18 @@ export class ServiceComponent implements OnInit {
 
   uploadPresentation(event) {
     this.uploadFile(
+      this.servicePath + this.presentationsPath,
       this.presentationsPath,
-      this.presentationsPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deletePresentation(file: File) {
-    this.fileService.deleteFile(this.presentationsPath, this.presentationsPath, file);
+  deletePresentation(fileUpload: FileUpload) {
+    this.fileService.deleteFile(
+      this.servicePath + this.presentationsPath,
+      this.presentationsPath,
+      fileUpload
+    );
   }
 
   getNewsletters(): void {
@@ -85,11 +95,19 @@ export class ServiceComponent implements OnInit {
   }
 
   uploadNewsletter(event) {
-    this.uploadFile(this.newslettersPath, this.newslettersPath, new File(event.target.files[0]));
+    this.uploadFile(
+      this.servicePath + this.newslettersPath,
+      this.newslettersPath,
+      new FileUpload(event.target.files[0])
+    );
   }
 
-  deleteNewsletter(file: File) {
-    this.fileService.deleteFile(this.newslettersPath, this.newslettersPath, file);
+  deleteNewsletter(fileUpload: FileUpload) {
+    this.fileService.deleteFile(
+      this.servicePath + this.newslettersPath,
+      this.newslettersPath,
+      fileUpload
+    );
   }
 
   getArchives(): void {
@@ -99,11 +117,19 @@ export class ServiceComponent implements OnInit {
   }
 
   uploadArchive(event) {
-    this.uploadFile(this.archivesPath, this.archivesPath, new File(event.target.files[0]));
+    this.uploadFile(
+      this.servicePath + this.archivesPath,
+      this.archivesPath,
+      new FileUpload(event.target.files[0])
+    );
   }
 
-  deleteArchive(file: File) {
-    this.fileService.deleteFile(this.archivesPath, this.archivesPath, file);
+  deleteArchive(fileUpload: FileUpload) {
+    this.fileService.deleteFile(
+      this.servicePath + this.archivesPath,
+      this.archivesPath,
+      fileUpload
+    );
   }
 
   getAreaAssemblyAgendas(): void {
@@ -114,17 +140,17 @@ export class ServiceComponent implements OnInit {
 
   uploadAreaAssemblyAgenda(event) {
     this.uploadFile(
-      this.areaAssemblyPath + this.agendasPath,
+      this.servicePath + this.areaAssemblyPath + this.agendasPath,
       this.areaAssemblyAgendasPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deleteAreaAssemblyAgenda(file: File) {
+  deleteAreaAssemblyAgenda(fileUpload: FileUpload) {
     this.fileService.deleteFile(
-      this.areaAssemblyPath + this.agendasPath,
+      this.servicePath + this.areaAssemblyPath + this.agendasPath,
       this.areaAssemblyAgendasPath,
-      file
+      fileUpload
     );
   }
 
@@ -136,17 +162,17 @@ export class ServiceComponent implements OnInit {
 
   uploadAreaAssemblyMinutes(event) {
     this.uploadFile(
-      this.areaAssemblyPath + this.minutesPath,
+      this.servicePath + this.areaAssemblyPath + this.minutesPath,
       this.areaAssemblyMinutesPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deleteAreaAssemblyMinutes(file: File) {
+  deleteAreaAssemblyMinutes(fileUpload: FileUpload) {
     this.fileService.deleteFile(
-      this.areaAssemblyPath + this.minutesPath,
+      this.servicePath + this.areaAssemblyPath + this.minutesPath,
       this.areaAssemblyMinutesPath,
-      file
+      fileUpload
     );
   }
 
@@ -158,17 +184,17 @@ export class ServiceComponent implements OnInit {
 
   uploadAreaAssemblyReport(event: any) {
     this.uploadFile(
-      this.areaAssemblyPath + this.reportsPath,
+      this.servicePath + this.areaAssemblyPath + this.reportsPath,
       this.areaAssemblyReportsPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deleteAreaAssemblyReport(file: File) {
+  deleteAreaAssemblyReport(fileUpload: FileUpload) {
     this.fileService.deleteFile(
-      this.areaAssemblyPath + this.reportsPath,
+      this.servicePath + this.areaAssemblyPath + this.reportsPath,
       this.areaAssemblyReportsPath,
-      file
+      fileUpload
     );
   }
 
@@ -180,17 +206,17 @@ export class ServiceComponent implements OnInit {
 
   uploadAreaCommitteeAgenda(event: any) {
     this.uploadFile(
-      this.areaCommitteePath + this.agendasPath,
+      this.servicePath + this.areaCommitteePath + this.agendasPath,
       this.areaCommitteeAgendasPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deleteAreaCommitteeAgenda(file: File) {
+  deleteAreaCommitteeAgenda(fileUpload: FileUpload) {
     this.fileService.deleteFile(
-      this.areaCommitteePath + this.agendasPath,
+      this.servicePath + this.areaCommitteePath + this.agendasPath,
       this.areaCommitteeAgendasPath,
-      file
+      fileUpload
     );
   }
 
@@ -202,17 +228,17 @@ export class ServiceComponent implements OnInit {
 
   uploadAreaCommitteeMinutes(event: any) {
     this.uploadFile(
-      this.areaCommitteePath + this.minutesPath,
+      this.servicePath + this.areaCommitteePath + this.minutesPath,
       this.areaCommitteeMinutesPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deleteAreaCommitteeMinutes(file: File) {
+  deleteAreaCommitteeMinutes(fileUpload: FileUpload) {
     this.fileService.deleteFile(
-      this.areaCommitteePath + this.minutesPath,
+      this.servicePath + this.areaCommitteePath + this.minutesPath,
       this.areaCommitteeMinutesPath,
-      file
+      fileUpload
     );
   }
 
@@ -224,17 +250,17 @@ export class ServiceComponent implements OnInit {
 
   uploadAreaCommitteeReport(event: any) {
     this.uploadFile(
-      this.areaCommitteePath + this.reportsPath,
+      this.servicePath + this.areaCommitteePath + this.reportsPath,
       this.areaCommitteeReportsPath,
-      new File(event.target.files[0])
+      new FileUpload(event.target.files[0])
     );
   }
 
-  deleteAreaCommitteeReports(file: File) {
+  deleteAreaCommitteeReports(fileUpload: FileUpload) {
     this.fileService.deleteFile(
-      this.areaCommitteePath + this.reportsPath,
+      this.servicePath + this.areaCommitteePath + this.reportsPath,
       this.areaCommitteeReportsPath,
-      file
+      fileUpload
     );
   }
 
@@ -249,8 +275,8 @@ export class ServiceComponent implements OnInit {
     );
   }
 
-  private uploadFile(storagePath: string, dbPath: string, file: File) {
-    this.fileService.pushFileToStorage(storagePath, dbPath, file).subscribe(
+  private uploadFile(storagePath: string, dbPath: string, fileUpload: FileUpload) {
+    this.fileService.pushFileToStorage(storagePath, dbPath, fileUpload).subscribe(
       percentage => {
         this.percentage = Math.round(percentage);
       },

@@ -1,4 +1,4 @@
-export class File {
+export class FileUpload {
   key: string;
   name: string;
   url: string;

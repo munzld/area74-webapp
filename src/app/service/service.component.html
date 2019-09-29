@@ -165,12 +165,14 @@
                   <a href="{{ minutes.url }}" target="_blank">{{
                     minutes.name
                   }}</a>
-                  <button (click)='deleteAreaAssemblyMinutes(minutes)'
+                  <button *ngIf="isAdmin" (click)='deleteAreaAssemblyMinutes(minutes)'
                     class="btn btn-danger btn-xs float-right mb-3">Delete</button>
                 </li>
+              </ul>
+              <div *ngIf="isAdmin">
                 <label for="file">Upload Area Assembly Minutes:</label>
                 <input type="file" (change)="uploadAreaAssemblyMinutes($event)" />
-              </ul>
+              </div>
             </div>
           </div>
         </div>
