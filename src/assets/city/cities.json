@@ -315,7 +315,7 @@
     "id": 52,
     "city": "Gladstone",
     "state": "Michigan",
-    "district": 17
+    "district": 19
   },
   {
     "id": 53,
@@ -643,7 +643,7 @@
   },
   {
     "id": 108,
-    "city": "Navarion",
+    "city": "Navarino",
     "state": "Wisconsin",
     "district": 2
   },
@@ -735,7 +735,7 @@
     "id": 123,
     "city": "Pembine",
     "state": "Wisconsin",
-    "district": 10
+    "district": 17
   },
   {
     "id": 124,
@@ -1041,7 +1041,7 @@
     "id": 175,
     "city": "Winter",
     "state": "Wisconsin",
-    "district": 11
+    "district": 12
   },
   {
     "id": 176,
@@ -1084,5 +1084,299 @@
     "city": "Whitehall",
     "state": "Wisconsin",
     "district": 5
+  },
+  {
+    "id": 183,
+    "city": "Abbotsford",
+    "state": "Wisconsin",
+    "district": 7
+  },
+  {
+    "id": 183,
+    "city": "Big Bay",
+    "state": "Michigan",
+    "district": 18
+  },
+  {
+    "id": 184,
+    "city": "Bloomer",
+    "state": "Wisconsin",
+    "district": 6
+  },
+  {
+    "id": 185,
+    "city": "Bonduel",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 186,
+    "city": "Boulder Junction",
+    "state": "Wisconsin",
+    "district": 10
+  },
+  {
+    "id": 187,
+    "city": "Bruce Crossing",
+    "state": "Michigan",
+    "district": 16
+  },
+  {
+    "id": 188,
+    "city": "Clear Lake",
+    "state": "Wisconsin",
+    "district": 14
+  },
+  {
+    "id": 189,
+    "city": "Combined Locks",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 190,
+    "city": "Copper Harbor",
+    "state": "Michigan",
+    "district": 21
+  },
+  {
+    "id": 191,
+    "city": "Cornucopia",
+    "state": "Wisconsin",
+    "district": 13
+  },
+  {
+    "id": 192,
+    "city": "Covington",
+    "state": "Michigan",
+    "district": 16
+  },
+  {
+    "id": 193,
+    "city": "Danbury",
+    "state": "Wisconsin",
+    "district": 23
+  },
+  {
+    "id": 194,
+    "city": "Dollar Bay",
+    "state": "Michigan",
+    "district": 21
+  },
+  {
+    "id": 195,
+    "city": "Eagle Harbor",
+    "state": "Michigan",
+    "district": 21
+  },
+  {
+    "id": 196,
+    "city": "Eleva",
+    "state": "Wisconsin",
+    "district": 5
+  },
+  {
+    "id": 197,
+    "city": "Elmwood",
+    "state": "Wisconsin",
+    "district": 5
+  },
+  {
+    "id": 198,
+    "city": "Engadine",
+    "state": "Michigan",
+    "district": 20
+  },
+  {
+    "id": 199,
+    "city": "Fish Creek",
+    "state": "Wisconsin",
+    "district": 22
+  },
+  {
+    "id": 200,
+    "city": "Flintville",
+    "state": "Wisconsin",
+    "district": 1
+  },
+  {
+    "id": 201,
+    "city": "Frederic",
+    "state": "Wisconsin",
+    "district": 23
+  },
+  {
+    "id": 202,
+    "city": "Freedom",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 203,
+    "city": "Gillett",
+    "state": "Wisconsin",
+    "district": 9
+  },
+  {
+    "id": 204,
+    "city": "Gordon",
+    "state": "Wisconsin",
+    "district": 13
+  },
+  {
+    "id": 205,
+    "city": "Harvey",
+    "state": "Michigan",
+    "district": 18
+  },
+  {
+    "id": 206,
+    "city": "Hertel",
+    "state": "Wisconsin",
+    "district": 23
+  },
+  {
+    "id": 207,
+    "city": "Hixton",
+    "state": "Wisconsin",
+    "district": 5
+  },
+  {
+    "id": 208,
+    "city": "Hurley",
+    "state": "Wisconsin",
+    "district": 15
+  },
+  {
+    "id": 209,
+    "city": "Manitowish Water",
+    "state": "Wisconsin",
+    "district": 10
+  },
+  {
+    "id": 210,
+    "city": "Mikana",
+    "state": "Wisconsin",
+    "district": 23
+  },
+  {
+    "id": 211,
+    "city": "Minong",
+    "state": "Wisconsin",
+    "district": 13
+  },
+  {
+    "id": 212,
+    "city": "Omro",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 213,
+    "city": "Ontonagon",
+    "state": "Michigan",
+    "district": 16
+  },
+  {
+    "id": 214,
+    "city": "Palmer",
+    "state": "Michigan",
+    "district": 18
+  },
+  {
+    "id": 215,
+    "city": "Prentice",
+    "state": "Wisconsin",
+    "district": 11
+  },
+  {
+    "id": 216,
+    "city": "Prescott",
+    "state": "Wisconsin",
+    "district": 5
+  },
+  {
+    "id": 217,
+    "city": "Pulaski",
+    "state": "Wisconsin",
+    "district": 1
+  },
+  {
+    "id": 218,
+    "city": "Rib Lake",
+    "state": "Wisconsin",
+    "district": 11
+  },
+  {
+    "id": 219,
+    "city": "Rock",
+    "state": "Michigan",
+    "district": 19
+  },
+  {
+    "id": 220,
+    "city": "Seymour",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 221,
+    "city": "Sherwood",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 222,
+    "city": "Skandia",
+    "state": "Michigan",
+    "district": 18
+  },
+  {
+    "id": 223,
+    "city": "Spring Valley",
+    "state": "Wisconsin",
+    "district": 5
+  },
+  {
+    "id": 224,
+    "city": "Stanley",
+    "state": "Wisconsin",
+    "district": 6
+  },
+  {
+    "id": 225,
+    "city": "Stockbridge",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 226,
+    "city": "Suring",
+    "state": "Wisconsin",
+    "district": 9
+  },
+  {
+    "id": 227,
+    "city": "Trade Lake Township",
+    "state": "Wisconsin",
+    "district": 23
+  },
+  {
+    "id": 228,
+    "city": "Winchester",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 229,
+    "city": "Winnebago",
+    "state": "Wisconsin",
+    "district": 2
+  },
+  {
+    "id": 230,
+    "city": "Woodruff",
+    "state": "Wisconsin",
+    "district": 10
   }
 ]
