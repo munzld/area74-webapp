@@ -2,42 +2,9 @@
   Event Calendar
 </h2>
 <p>Below is a calendar of upcoming Area 74 service structure events.</p>
-<div class="table-responsive">
-  <table class="table table-hover table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Description</th>
-        <th scope="col">Place</th>
-        <th scope="col">Address</th>
-        <th scope="col">City</th>
-        <th scope="col">State</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let event of events">
-        <td>
-          {{ event?.date }}
-        </td>
-        <td *ngIf="!event?.link">
-          {{ event?.description }}
-        </td>
-        <td *ngIf="event?.link">
-          <a href="{{ event?.link }}" target="_blank">{{ event?.description }}</a>
-        </td>
-        <td>
-          {{ event?.place }}
-        </td>
-        <td>
-          {{ event?.address }}
-        </td>
-        <td>
-          {{ event?.city }}
-        </td>
-        <td>
-          {{ event?.state }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="responsiveCal">
+  <iframe
+    src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=d2VibWFzdGVyLmFyZWE3NEBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0"
+    style="border-width:0" width="800" height="600" frameborder="0" scrolling="no">
+  </iframe>
 </div>
